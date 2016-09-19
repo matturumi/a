@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>Bridge form template｜ページタイトル</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+</head>
+
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+
+	<!-- main -->
+	<div id="main">
+
+		<div class="section01">
+			<button id="snippet-toggle" class="button mgb10">コードの表示・非表示</button>
+			<p class="lead">下記の入力フォームに必要事項をご記入の上「入力内容を確認する」ボタンを押してください。</p>
+
+<div class="code-sample">
+<form action="" method="">
+<table class="tbl01">
+	<col class="colW25">
+	<col class="colW10">
+	<col>
+	<tr>
+		<th>お名前</th>
+		<td class="required"><p>必須</p></td>
+		<td>
+			<input type="text" name="" class="txt medium01 err">
+			<p class="errorTxt">* 入力してください</p>
+		</td>
+	</tr>
+	<tr>
+		<th>ふりがな</th>
+		<td class="required"><p>必須</p></td>
+		<td>
+			<input type="text" name="" class="txt medium01 err">
+			<p class="errorTxt">* 入力してください</p>
+		</td>
+	</tr>
+	<tr>
+		<th>性別</th>
+		<td class="option"><p>任意</p></td>
+		<td><input type="radio" name="chk01" id="chk01_01" class="check" value="1"> <label for="chk01_01">男性</label>　<input type="radio" name="chk01" id="chk01_02" class="check" value="2"> <label for="chk01_02">女性</label></td>
+	</tr>
+	<tr>
+		<th>生年月日</th>
+		<td class="option"><p>任意</p></td>
+		<td><input type="text" name="" class="txt medium01 datepicker"></td>
+	</tr>
+	<tr>
+		<th>住所</th>
+		<td class="required"><p>必須</p></td>
+		<td>〒 <input type="text" name="zip" class="txt small01" onKeyUp="AjaxZip3.zip2addr(this,'','address1','address2');">
+		<p class="note01">例）0004567　ハイフンなしの7桁にてご入力ください。</p>
+		<select name="address1" class="txt mgt10 mgb10">
+			<option value="">都道府県を選択</option>
+			<option value="1">北海道</option>
+			<option value="2">青森県</option>
+			<option value="3">岩手県</option>
+			<option value="4">宮城県</option>
+			<option value="5">秋田県</option>
+			<option value="6">山形県</option>
+			<option value="7">福島県</option>
+			<option value="8">茨城県</option>
+			<option value="9">栃木県</option>
+			<option value="10">群馬県</option>
+			<option value="11">埼玉県</option>
+			<option value="12">千葉県</option>
+			<option value="13">東京都</option>
+			<option value="14">神奈川県</option>
+			<option value="15">新潟県</option>
+			<option value="16">富山県</option>
+			<option value="17">石川県</option>
+			<option value="18">福井県</option>
+			<option value="19">山梨県</option>
+			<option value="20">長野県</option>
+			<option value="21">岐阜県</option>
+			<option value="22">静岡県</option>
+			<option value="23">愛知県</option>
+			<option value="24">三重県</option>
+			<option value="25">滋賀県</option>
+			<option value="26">京都府</option>
+			<option value="27">大阪府</option>
+			<option value="28">兵庫県</option>
+			<option value="29">奈良県</option>
+			<option value="30">和歌山県</option>
+			<option value="31">鳥取県</option>
+			<option value="32">島根県</option>
+			<option value="33">岡山県</option>
+			<option value="34">広島県</option>
+			<option value="35">山口県</option>
+			<option value="36">徳島県</option>
+			<option value="37">香川県</option>
+			<option value="38">愛媛県</option>
+			<option value="39">高知県</option>
+			<option value="40">福岡県</option>
+			<option value="41">佐賀県</option>
+			<option value="42">長崎県</option>
+			<option value="43">熊本県</option>
+			<option value="44">大分県</option>
+			<option value="45">宮崎県</option>
+			<option value="46">鹿児島県</option>
+			<option value="47">沖縄県</option>
+		</select>
+		<table class="tblNoBdr">
+			<tr>
+				<th>市区町村</th>
+				<td><input type="text" name="address2" class="txt medium02"></td>
+			</tr>
+			<tr>
+				<th>マンション名</th>
+				<td><input type="text" name="" class="txt medium02"></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<th>電話番号</th>
+		<td class="required"><p>必須</p></td>
+		<td><input type="text" name="" class="txt medium01">　<span class="note01">ハイフンなし、半角英数にてご入力ください。</span></td>
+	</tr>
+	<tr>
+		<th>メールアドレス</th>
+		<td class="required"><p>必須</p></td>
+		<td><input type="text" name="" class="txt large01"></td>
+	</tr>
+	<tr>
+		<th>メールアドレス<br>
+		確認用（再入力）</th>
+		<td class="required"><p>必須</p></td>
+		<td><input type="text" name="" class="txt large01"></td>
+	</tr>
+	<tr>
+		<th>メールマガジン</th>
+		<td class="required"><p>必須</p></td>
+		<td><input type="checkbox" name="" id="chk01" class="check" value=""> <label for="chk01">購読する</label> </td>
+	</tr>
+	<tr>
+		<th>お問合せ内容</th>
+		<td class="required"><p>必須</p></td>
+		<td><textarea class="txt large01" rows="4" cols="30"></textarea></td>
+	</tr>
+</table>
+<ul class="btnUnit01">
+	<li><input type="submit" value="確認画面へ"></li>
+</ul>
+</form>
+				</div>
+
+				<h3 class="title02 mgt30 mgb10"><b>その他入力フォーム</b></h3>
+				<div class="code-sample">
+<table class="tbl01">
+	<col class="colW25">
+	<col class="colW10">
+	<col>
+	<tr>
+		<th>ご意見</th>
+		<td class="option"><p>任意</p></td>
+		<td>
+		<p>このサイトをどちらでお知りになりましたか？</p>
+		<ul class="mgt10">
+			<li><input type="radio" name="find" id="chk04_01" class="check" value="1"> <label for="chk04_01">店名で検索して</label></li>
+			<li><input type="radio" name="find" id="chk04_02" class="check" value="2"> <label for="chk04_02">知人・友人から</label></li>
+			<li><input type="radio" name="find" id="chk04_03" class="check" value="3"> <label for="chk04_03">弊社からのお知らせ</label></li>
+			<li><input type="radio" name="find" id="chk04_04" class="check" value="4"> <label for="chk04_04">その他</label><br>
+			<input type="text" name="find_etc" class="txt medium02 mgt10" value=""></li>
+		</ul></td>
+	</tr>
+	<tr>
+		<th>期間</th>
+		<td class="option"><p>任意</p></td>
+		<td>
+			<p class="mgb5">開始日時</p>
+			<p class=""><input type="text" name="" class="txt small02">　年　<input type="text" name="" class="txt small01">　月　<input type="text" name="" class="txt small01">　日　<input type="text" name="" class="txt small01">　時 ～</p>
+			<p class="mgt10 mgb5">終了日時</p>
+			<p class=""><input type="text" name="" class="txt small02">　年　<input type="text" name="" class="txt small01">　月　<input type="text" name="" class="txt small01">　日　<input type="text" name="" class="txt small01">　時</p>
+		</td>
+	</tr>
+	<tr>
+		<th>ファイルアップロード</th>
+		<td class="option"><p>任意</p></td>
+		<td><input type="file"></td>
+	</tr>
+</table>
+</div>
+
+				<h3 class="title02 mgt30 mgb10"><b>THがもう一段あるテーブル</b></h3>
+				<div class="code-sample">
+<table class="tbl01">
+	<col class="colW25">
+	<col class="colW10">
+	<col>
+	<tr>
+		<th rowspan="2">期間</th>
+		<td rowspan="2" class="option"><p>任意</p></td>
+		<th class="inTH">開始日時</th>
+		<td><input type="text" name="" class="txt small02">　年　<input type="text" name="" class="txt small01">　月　<input type="text" name="" class="txt small01">　日　<input type="text" name="" class="txt small01">　時 ～
+		</td>
+	</tr>
+	<tr>
+		<th class="inTH">終了日時</th>
+		<td><input type="text" name="" class="txt small02">　年　<input type="text" name="" class="txt small01">　月　<input type="text" name="" class="txt small01">　日　<input type="text" name="" class="txt small01">　時
+		</td>
+	</tr>
+</table>
+				</div>
+
+				<h3 class="title02 mgt30 mgb10"><b>検索フォーム</b></h3>
+				<div class="code-sample">
+<table class="tbl01">
+	<tr>
+		<td><input type="text" name="" class="txt medium02">　<input type="button" value="検索"></td>
+	</tr>
+</table>
+				</div>
+
+
+
+		</div>
+	</div>
+	<!-- /main -->
+
+	<div id="sub"></div>
+
+</div>
+<!-- /content -->
+
+<!-- footer -->
+<div id="footer">
+	<address>COPYRIGHT © BRIDGE CORPORATION INC. ALL RIGHTS RESERVED.</address>
+</div>
+<!-- /footer -->
+
+</div>
+
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</script>
+
+
+</body>
+
+</html>

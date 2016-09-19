@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>autoheightJS｜ページタイトル</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+
+<script>
+/*
+ * jquery-auto-height.js
+ *
+ * Copyright (c) 2010 Tomohiro Okuwaki (http://www.tinybeans.net/blog/)
+ * Licensed under MIT Lisence:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://sourceforge.jp/projects/opensource/wiki/licenses%2FMIT_license
+ *
+ * Since:   2010-04-19
+ * Update:  2010-04-27
+ * version: 0.02
+ * Comment:
+ *
+ * jQuery 1.2 later
+ *
+ */
+(function($){
+		$.fn.autoHeight = function(options){
+				var op = $.extend({
+						column  : 0,
+						clear   : 0,
+						height  : 'minHeight',
+						descend : function descend (a,b){ return b-a; }
+				},options || {}); // optionsに値があれば上書きする
+				var self = $(this);
+				var n = 0,
+						hMax,
+						hList = new Array(),
+						hListLine = new Array();
+						hListLine[n] = 0;
+				// 要素の高さを取得
+				self.each(function(i){
+						var h = $(this).height();
+						hList[i] = h;
+						if (op.column > 1) {
+								// op.columnごとの最大値を格納していく
+								if (h > hListLine[n]) {
+										hListLine[n] = h;
+								}
+								if ( (i > 0) && (((i+1) % op.column) == 0) ) {
+										n++;
+										hListLine[n] = 0;
+								};
+						}
+				});
+				// 取得した高さの数値を降順に並べ替え
+				hList = hList.sort(op.descend);
+				hMax = hList[0];
+				// 高さの最大値を要素に適用
+				if (op.column > 1) {
+						for (var j=0; j<hListLine.length; j++) {
+								for (var k=0; k<op.column; k++) {
+									self.eq(j*op.column+k).css(op.height,hListLine[j]);
+									if (k == 0 && op.clear != 0) self.eq(j*op.column+k).css('clear','both');
+								}
+						}
+				} else {
+						self.css(op.height,hMax);
+				}
+		};
+})(jQuery);
+
+
+$(function(){
+
+	//1列のみ
+	$('#box').find('p').autoHeight();
+
+	//2列以上
+	$('#box2').find('p').autoHeight({column:3,clear:1});
+
+	//2列以上が複数
+	$("#aSection").find('ul').each(function(){
+		$(this).find('li').autoHeight({column:3,clear:1});
+	});
+
+
+});
+
+
+</script>
+
+<style>
+#box {
+	overflow: hidden;
+}
+#box2 {
+	width: 200px;
+	margin-bottom: 20px;
+}
+.a{
+	width: 50px;
+	background-color: #eee;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	margin: 0 5px 5px 0;
+}
+#aSection {
+	width: 175px;
+}
+#aSection ul {
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+#aSection li {
+	width: 50px;
+	background-color: #eee;
+	margin: 0 5px 5px 0;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- container -->
+<div id="content">
+
+	<div id="main">
+
+<p style="margin-bottom:30px;"><b>参照</b><br>
+<a href="http://www.tinybeans.net/blog/download/jquery-plugin/jquery-auto-height.html" target="_blank">http://www.tinybeans.net/blog/download/jquery-plugin/jquery-auto-height.html</a></p>
+
+<p class="mgb5"><b>1列だけの場合</b></p>
+<div id="box">
+	<p class="a">a</p>
+	<p class="a">b<br>b</p>
+	<p class="a">c</p>
+</div>
+<pre>$('#box').find('p').autoHeight();</pre>
+
+<p class="mgt20 mgb5"><b>2列以上のとき</b></p>
+<div id="box2">
+	<p class="a">a</p>
+	<p class="a">b<br>b</p>
+	<p class="a">c</p>
+	<p class="a">a</p>
+	<p class="a">b</p>
+	<p class="a">c<br>c<br>c</p>
+</div>
+<pre>$('#box2').find('p').autoHeight({column:3,clear:1});</pre>
+
+<p class="mgt20 mgb5"><b>2列以上が複数あるとき</b></p>
+<div id="aSection">
+	<ul>
+		<li>1</li>
+		<li>2<br>2</li>
+		<li>3</li>
+		<li>1</li>
+		<li>2<br>2<br>2</li>
+		<li>3</li>
+		<li>1</li>
+		<li>2</li>
+		<li>3<br>3<br>3<br>3</li>
+	</ul>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>1</li>
+		<li>2<br>2</li>
+		<li>3</li>
+		<li>1</li>
+		<li>2</li>
+		<li>3<br>3<br>3<br>3</li>
+	</ul>
+</div>
+<pre>$("#aSection").find('ul').each(function(){
+	$(this).find('li').autoHeight({column:3,clear:1});
+});</pre>
+
+<p class="mgt20"><b>common.jsに以下を追加</b></p>
+<pre>/*
+ * jquery-auto-height.js
+ *
+ * Copyright (c) 2010 Tomohiro Okuwaki (http://www.tinybeans.net/blog/)
+ * Licensed under MIT Lisence:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://sourceforge.jp/projects/opensource/wiki/licenses%2FMIT_license
+ *
+ * Since:   2010-04-19
+ * Update:  2010-04-27
+ * version: 0.02
+ * Comment:
+ *
+ * jQuery 1.2 later
+ *
+ */
+(function($){
+	$.fn.autoHeight = function(options){
+		var op = $.extend({
+			column  : 0,
+			clear   : 0,
+			height  : 'minHeight',
+			descend : function descend (a,b){ return b-a; }
+		},options || {}); // optionsに値があれば上書きする
+		var self = $(this);
+		var n = 0,
+			hMax,
+			hList = new Array(),
+			hListLine = new Array();
+			hListLine[n] = 0;
+		// 要素の高さを取得
+		self.each(function(i){
+			var h = $(this).height();
+			hList[i] = h;
+			if (op.column > 1) {
+				// op.columnごとの最大値を格納していく
+				if (h > hListLine[n]) {
+					hListLine[n] = h;
+				}
+				if ( (i > 0) && (((i+1) % op.column) == 0) ) {
+					n++;
+					hListLine[n] = 0;
+				};
+			}
+		});
+		// 取得した高さの数値を降順に並べ替え
+		hList = hList.sort(op.descend);
+		hMax = hList[0];
+		// 高さの最大値を要素に適用
+		if (op.column > 1) {
+			for (var j=0; j < hListLine.length; j++) {
+				for (var k=0; k < op.column; k++) {
+					self.eq(j*op.column+k).css(op.height,hListLine[j]);
+					if (k == 0 && op.clear != 0) self.eq(j*op.column+k).css('clear','both');
+				}
+			}
+		} else {
+			self.css(op.height,hMax);
+		}
+	};
+})(jQuery);</pre>
+
+<p class="mgt20"><b>ie6の時は以下をcommon.jsに追加</b></p>
+<pre>var _ua = (function(){
+	return {
+		ltIE6:typeof window.addEventListener == "undefined" && typeof document.documentElement.style.maxHeight == "undefined"
+	}
+})();
+/*
+ * jquery-auto-height.js
+ *
+ * Copyright (c) 2010 Tomohiro Okuwaki (http://www.tinybeans.net/blog/)
+ * Licensed under MIT Lisence:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://sourceforge.jp/projects/opensource/wiki/licenses%2FMIT_license
+ *
+ * Since:   2010-04-19
+ * Update:  2010-04-27
+ * version: 0.02
+ * Comment:
+ *
+ * jQuery 1.2 later
+ *
+ */
+(function($){
+		$.fn.autoHeight = function(options){
+				var op = $.extend({
+						column  : 0,
+						clear   : 0,
+						height  : 'minHeight',
+						descend : function descend (a,b){ return b-a; }
+				},options || {}); // optionsに値があれば上書きする
+				var self = $(this);
+				var n = 0,
+						hMax,
+						hList = new Array(),
+						hListLine = new Array();
+						hListLine[n] = 0;
+				// 要素の高さを取得
+				self.each(function(i){
+						var h = $(this).height();
+						hList[i] = h;
+						if (op.column > 1) {
+								// op.columnごとの最大値を格納していく
+								if (h > hListLine[n]) {
+										hListLine[n] = h;
+								}
+								if ( (i > 0) && (((i+1) % op.column) == 0) ) {
+										n++;
+										hListLine[n] = 0;
+								};
+						}
+				});
+				// 取得した高さの数値を降順に並べ替え
+				hList = hList.sort(op.descend);
+				hMax = hList[0];
+				// 高さの最大値を要素に適用
+				if (op.column > 1) {
+						for (var j=0; j < hListLine.length; j++) {
+								for (var k=0; k < op.column; k++) {
+										if (_ua.ltIE6) {
+												self.eq(j*op.column+k).height(hListLine[j]);
+												if (k == 0 && op.clear != 0) self.eq(j*op.column+k).css('clear','both');
+										} else {
+												self.eq(j*op.column+k).css(op.height,hListLine[j]);
+												if (k == 0 && op.clear != 0) self.eq(j*op.column+k).css('clear','both');
+										}
+								}
+						}
+				} else {
+						if (_ua.ltIE6) {
+								self.height(hMax);
+						} else {
+								self.css(op.height,hMax);
+						}
+				}
+		};
+})(jQuery);</pre>
+
+
+	</div>
+
+	<div id="sub"></div>
+
+</div>
+
+<!-- footer -->
+<div id="footer">
+	<address>COPYRIGHT © BRIDGE CORPORATION INC. ALL RIGHTS RESERVED.</address>
+</div>
+<!-- /footer -->
+
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

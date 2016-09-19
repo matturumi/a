@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>カウントダウン 1秒単位</title>
+
+<script src="../basic_html/files/js/jquery.js"></script>
+<script src="../basic_html/files/js/common.js"></script>
+
+<script>
+(function(){
+function countDown() {
+	var startDateTime = new Date();//現在時刻
+	var endDateTime = new Date("may 01,2015 00:00:00");//終了時刻
+	var leftTime = endDateTime - startDateTime;//残時間
+	var oneday_mirisecond = 24 * 60 * 60 * 1000;//1日のミリ秒数
+
+	// 残日数
+	var cdDay = Math.floor(leftTime / oneday_mirisecond);
+
+	// 残時間数
+	var cdHour = Math.floor((leftTime % oneday_mirisecond) / (60 * 60 * 1000));
+
+	// 残分数
+	var cdMinute = Math.floor((leftTime % oneday_mirisecond) / (60 * 1000)) % 60;
+
+	// 残秒数
+	var cdSecond = Math.floor((leftTime % oneday_mirisecond) / 1000) % 60 % 60;
+
+	$("#timeLeft").text(cdDay + '日' + cdHour + '時間' + cdMinute + '分' + cdSecond + '秒');
+}
+$(function() {
+	countDown();
+	setInterval(function(){
+		countDown();
+	}, 1000);
+});
+}());
+</script>
+
+</head>
+
+<body>
+
+<!-- content -->
+<div id="content">
+<div id="main">
+	<p>カウントダウン終了まで</p>
+	<div id="timeLeft"></div>
+
+	<p class="mgt20"><b>html</b></p>
+	<pre>&lt;div id="timeLeft"&gt;&lt;/div&gt;</pre>
+	<p class="mgt20"><b>js</b></p>
+	<pre>&lt;script&gt;
+(function(){
+	function countDown() {
+		var startDateTime = new Date();//現在時刻
+		var endDateTime = new Date("may 01,2015 00:00:00");//終了時刻
+		var leftTime = endDateTime - startDateTime;//残時間
+		var oneday_mirisecond = 24 * 60 * 60 * 1000;//1日のミリ秒数
+
+		// 残日数
+		var cdDay = Math.floor(leftTime / oneday_mirisecond);
+
+		// 残時間数
+		var cdHour = Math.floor((leftTime % oneday_mirisecond) / (60 * 60 * 1000));
+
+		// 残分数
+		var cdMinute = Math.floor((leftTime % oneday_mirisecond) / (60 * 1000)) % 60;
+
+		// 残秒数
+		var cdSecond = Math.floor((leftTime % oneday_mirisecond) / 1000) % 60 % 60;
+
+		$("#timeLeft").text(cdDay + '日' + cdHour + '時間' + cdMinute + '分' + cdSecond + '秒');
+	}
+	$(function() {
+		countDown();
+		setInterval(function(){
+			countDown();
+		}, 1000);
+	});
+}());
+&lt;/script&gt;
+</pre>
+</div>
+<div id="sub"></div>
+
+</div>
+
+<!-- /content -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

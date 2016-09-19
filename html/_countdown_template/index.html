@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>カウントダウン</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+<script type="text/javascript">
+(function($){
+		$.fn.countDown = function(options) {
+			// 初期値、オプションの初期値を設定
+			var set = $.extend({
+				interval:3600000,
+				endtime: 'May 01,2016 00:00:00'
+			},options || {}); // optionsに値があれば上書き
+			var self = $(this);
+			var currentTime,leftTime,leftDay;
+			var oneday_mirisecond = 24 * 60 * 60 * 1000,//1日のミリ秒数
+					endDateTime = new Date(set.endtime);//終了時刻
+			var calc = {
+				funcCountDown:function(){
+					currentTime = new Date();//現在時刻
+					leftTime	= endDateTime - currentTime;//残時間
+					leftDay			= Math.floor(leftTime / oneday_mirisecond);// 残日数
+					self.text(leftDay + '日');
+				},
+				init:function(){
+					this.funcCountDown();
+					setInterval(function(){
+						calc.funcCountDown();
+					}, set.interval);
+				}
+			};
+			calc.init();
+		};
+})(jQuery);
+
+$(function() {
+	$("#timeLeftDay").countDown({
+		endtime: 'May 01,2015 00:00:00'
+	});
+});
+</script>
+
+</head>
+
+<body>
+
+<!-- content -->
+<div id="content">
+
+	<div id="main">
+		<p>カウントダウン終了まであと</p>
+
+		<div id="timeLeftDay"></div>
+
+		<p class="mgt10">※1時間ごとに切り替え</p>
+		<pre>&lt;div id="timeLeftDay"&gt;&lt;/div&gt;</pre>
+		<pre>(function($){
+	$.fn.countDown = function(options) {
+		// 初期値、オプションの初期値を設定
+		var set = $.extend({
+			interval:3600000,
+			endtime: 'May 01,2016 00:00:00'
+		},options || {}); // optionsに値があれば上書き
+		var self = $(this);
+		var currentTime,leftTime,leftDay;
+		var oneday_mirisecond = 24 * 60 * 60 * 1000,//1日のミリ秒数
+				endDateTime = new Date(set.endtime);//終了時刻
+		var calc = {
+			funcCountDown:function(){
+				currentTime = new Date();//現在時刻
+				leftTime	= endDateTime - currentTime;//残時間
+				leftDay			= Math.floor(leftTime / oneday_mirisecond);// 残日数
+				self.text(leftDay + '日');
+			},
+			init:function(){
+				this.funcCountDown();
+				setInterval(function(){
+					calc.funcCountDown();
+				}, set.interval);
+			}
+		};
+		calc.init();
+	};
+})(jQuery);
+
+$(function() {
+	$("#timeLeftDay").countDown({
+		endtime: 'May 01,2015 00:00:00'
+	});
+});</pre>
+	</div>
+	<div id="sub"></div>
+</div>
+<!-- /content -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

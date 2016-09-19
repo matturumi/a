@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>Bridge form template｜ページタイトル</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+<!-- 非SSL時 <script src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js" charset="UTF-8"></script> -->
+<script src="https://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3-https.js" charset="UTF-8"></script>
+
+</head>
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+
+	<!-- main -->
+	<div id="main">
+
+		<div class="section01 mgt20">
+			<h1 class="mgb15"><b>住所自動入力機能</b></h1>
+			<div class="code-sample">
+<form action="" method="" id="validation">
+	<table class="tbl01">
+		<col class="colW25">
+		<col class="colW10">
+		<col>
+		<tr>
+			<th>住所</th>
+			<td class="required"><p>必須</p></td>
+			<td>〒 <input type="text" name="zip" class="txt small03" onKeyUp="AjaxZip3.zip2addr(this,'','address1','address2');" id="chkZip">
+			<p class="note01">例）0004567　ハイフンなしの7桁にてご入力ください。</p>
+			<select name="address1" class="txt mgt10 mgb10">
+				<option value="">都道府県を選択</option>
+				<option value="1">北海道</option>
+				<option value="2">青森県</option>
+				<option value="3">岩手県</option>
+				<option value="4">宮城県</option>
+				<option value="5">秋田県</option>
+				<option value="6">山形県</option>
+				<option value="7">福島県</option>
+				<option value="8">茨城県</option>
+				<option value="9">栃木県</option>
+				<option value="10">群馬県</option>
+				<option value="11">埼玉県</option>
+				<option value="12">千葉県</option>
+				<option value="13">東京都</option>
+				<option value="14">神奈川県</option>
+				<option value="15">新潟県</option>
+				<option value="16">富山県</option>
+				<option value="17">石川県</option>
+				<option value="18">福井県</option>
+				<option value="19">山梨県</option>
+				<option value="20">長野県</option>
+				<option value="21">岐阜県</option>
+				<option value="22">静岡県</option>
+				<option value="23">愛知県</option>
+				<option value="24">三重県</option>
+				<option value="25">滋賀県</option>
+				<option value="26">京都府</option>
+				<option value="27">大阪府</option>
+				<option value="28">兵庫県</option>
+				<option value="29">奈良県</option>
+				<option value="30">和歌山県</option>
+				<option value="31">鳥取県</option>
+				<option value="32">島根県</option>
+				<option value="33">岡山県</option>
+				<option value="34">広島県</option>
+				<option value="35">山口県</option>
+				<option value="36">徳島県</option>
+				<option value="37">香川県</option>
+				<option value="38">愛媛県</option>
+				<option value="39">高知県</option>
+				<option value="40">福岡県</option>
+				<option value="41">佐賀県</option>
+				<option value="42">長崎県</option>
+				<option value="43">熊本県</option>
+				<option value="44">大分県</option>
+				<option value="45">宮崎県</option>
+				<option value="46">鹿児島県</option>
+				<option value="47">沖縄県</option>
+			</select>
+			<table class="tblNoBdr">
+				<tr>
+					<th>市区町村</th>
+					<td><input type="text" name="address2" class="txt medium02"></td>
+				</tr>
+				<tr>
+					<th>マンション名</th>
+					<td><input type="text" name="" class="txt medium02"></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+	</table>
+</form>
+			</div>
+
+			<style>.exp{font-family: "メイリオ";font-size: 14px;color: #555;margin-top: 20px;}</style>
+			<div class="exp">
+				<p><b>■注意事項</b> ーーーーーーーーーーーーーーーーーーーーーーーーーーーー<br>
+				◯非SSL通信か、SSL通信かによって、読み込みパスを変更する
+				ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー</p>
+				（1）下記を読み込ませる<br>
+				<pre>
+&lt;script src="https://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3-https.js" charset="UTF-8"&gt;&lt;/script&gt;</pre>
+				<p class="mgt20">※非SSLのときは下記を</p>
+				<pre>&lt;script src="http://ajaxzip3.googlecode.com/svn/trunk/ajaxzip3/ajaxzip3.js" charset="UTF-8"&gt;&lt;/script&gt;</pre>
+				<br>
+				（2）郵便番号のinput要素に をつける<br>
+				<pre>&lt;input type="text" name="zip" class="txt small03" onKeyUp="AjaxZip3.zip2addr(this,'','address1','address2');" id="chkZip"&gt;</pre>
+				<br>
+				（3）自動で住所を出力させるselect、inputの、name属性に、さっきつけた引数を入れる。<br>
+				<pre>
+&lt;select name="address1" class="txt mgt10 mgb10"&gt;
+....
+&lt;input type="text" name="address2" class="txt medium02"&gt;
+				</pre>
+				<br>
+				※その他のバリエーションは下記を参照<br>
+				<a href="http://code.google.com/p/ajaxzip3/" target="_blank">http://code.google.com/p/ajaxzip3/</a>
+			</div>
+
+
+
+		</div>
+	</div>
+	<!-- /main -->
+	<div id="sub"></div>
+
+</div>
+<!-- /content -->
+
+<!-- footer -->
+<div id="footer">
+	<address>COPYRIGHT © BRIDGE CORPORATION INC. ALL RIGHTS RESERVED.</address>
+</div>
+<!-- /footer -->
+
+</div>
+
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

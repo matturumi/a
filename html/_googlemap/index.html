@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>ページタイトル</title>
+
+<script src="../basic_html/files/js/jquery.js"></script>
+<script src="../basic_html/files/js/common.js"></script>
+
+<style>
+/*#content {
+	width: 600px;
+	margin: 0 auto;
+	font-family: "メイリオ";
+}*/
+</style>
+
+
+<script src="//maps.google.com/maps/api/js?sensor=false"></script>
+<script src="jquery.gmap3.js"></script>
+
+<script>
+$(function() {
+	$('#gmap01').css('height','200').gmap3({
+		//中心
+		latitude: 34.828979,
+		longitude: 134.715726,
+		zoom: 15,
+		scaleControl: false,
+		mapTypeControl: false,
+		navigationControl: false,
+		markers: [{
+				title: 'Cafe de mouche',
+				content: '<div class="Markers"><h3><b>タイトル</b></h3><p>テキストテキスト</p></div>',
+				icon: './icon_marker_01.png',
+				latitude: 34.828979,
+				longitude: 134.715726,
+				openInfo: false
+			}]
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+
+<div id="main">
+	<b>googlemap api</b><br>
+
+	<div id="gmap01"></div>
+
+	<p class="mgt20"><b>html</b></p>
+	<pre>
+&lt;script src="//maps.google.com/maps/api/js?sensor=false"&gt;&lt;/script&gt;
+&lt;script src="jquery.gmap3.js"&gt;&lt;/script&gt;</pre>
+	<pre>&lt;div id="gmap01"&gt;&lt;/div&gt;</pre>
+
+	<p class="mgt20"><b>js</b></p>
+	<pre>$('#gmap01').css('height','200').gmap3({
+	//中心
+	latitude: 34.828979,
+	longitude: 134.715726,
+	zoom: 15,
+	scaleControl: false,
+	mapTypeControl: false,
+	navigationControl: false,
+	markers: [{
+			title: 'Cafe de mouche',
+			content: '&lt;div class="Markers"&gt;&lt;h3&gt;&lt;b&gt;タイトル&lt;/b&gt;&lt;/h3&gt;&lt;p&gt;テキストテキスト&lt;/p&gt;&lt;/div&gt;',
+			icon: './icon_marker_01.png',
+			latitude: 34.828979,
+			longitude: 134.715726,
+			openInfo: false
+		}]
+});</pre>
+
+
+</div>
+<div id="sub"></div>
+
+</div>
+<!-- /content -->
+
+</div>
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

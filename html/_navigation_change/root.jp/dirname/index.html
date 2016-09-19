@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<link rel="stylesheet" type="text/css" href="http://morii-ganka.jp/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="http://morii-ganka.jp/files/css/guide.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="http://morii-ganka.jp/files/css/common/print.css" media="print">
+
+<title>ナビゲーションアクティブテンプレート</title>
+
+<script src="http://morii-ganka.jp/files/js/jquery.js"></script>
+<script src="../../../basic_html/files/js/common.js"></script>
+
+<script>
+
+/*----------------------------------------------
+*
+* 	globalNav and side navi active
+*
+----------------------------------------------*/
+(function($){
+	$.fn.navActiveChange = function(){
+		var self = $(this);
+
+		//urlからside navi active
+		var url = document.location.href.split('.jp').pop();
+		if(url.indexOf('#')>0){
+			url = url.split('#')[0];
+		}
+		$('#sub a[href="'+url+'"]').addClass('active');
+
+		//topicPathから globalNav active
+		var txt = self.find('#topicPath').find('li').eq(1).text(),
+				$img = self.find('#globalNav img[alt="'+txt+'"]');
+		if($img.size()>0){
+			var src = $img.attr('src').replace('_off','_on');
+			$img.attr('src',src);
+		}
+	};
+})(jQuery);
+
+
+$(function(){
+
+	$('#container').navActiveChange();
+
+
+});
+
+</script>
+<style>
+pre {
+	background: #f3f3f3;
+	padding: 15px;
+	border: 1px solid #ccc;
+	max-width: 980px;
+	margin: 15px auto 0;
+	overflow: auto;
+	white-space: -moz-pre-wrap;
+	white-space: pre-wrap;
+}
+.auto-gen-code-snippet {
+	display: none;
+}
+.auto-gen-code-visible {
+	display: block;
+}</style>
+</head>
+
+<body>
+
+<!-- container -->
+<div id="container" style="padding-top: 50px;">
+
+<p class="Skip"><a href="#content">本文までスキップ</a></p>
+
+<!-- globalNav -->
+<div id="globalNav">
+	<ul>
+		<li id="gnav01"><a href="/"><img width="145" height="51" src="http://morii-ganka.jp/files/img/common/nav_glb_01_off.png" alt="HOME"></a></li><!--
+	 --><li id="gnav02"><a href="/clinic/"><img width="154" height="51" src="http://morii-ganka.jp/files/img/common/nav_glb_02_off.png" alt="医院案内"></a></li><!--
+	 --><li id="gnav03"><a href="/guide/"><img width="155" height="51" src="http://morii-ganka.jp/files/img/common/nav_glb_03_off.png" alt="診療案内"></a></li><!--
+	 --><li id="gnav04"><a href="/operate/"><img width="154" height="51" src="http://morii-ganka.jp/files/img/common/nav_glb_04_off.png" alt="手術案内"></a></li><!--
+	 --><li id="gnav05"><a href="/disease/"><img width="157" height="51" src="http://morii-ganka.jp/files/img/common/nav_glb_05_off.png" alt="目の病気"></a></li><!--
+	 --><li id="gnav06"><a href="/access/"><img width="176" height="51" src="http://morii-ganka.jp/files/img/common/nav_glb_06_off.png" alt="交通アクセス"></a></li>
+	</ul>
+</div>
+<!-- /globalNav -->
+
+<!-- content -->
+<div id="content">
+
+	<ol id="topicPath">
+		<li id="topPage"><a href="/">HOME</a></li><li><a href="/guide/">診療案内</a></li><li>一般診療</li>
+	</ol>
+
+	<div style="width:580px;float: left;padding-top: 50px;font-size: 16px;">
+		<p class="mgb20"><a href="/mytemplate/">テンプレに戻る</a></p>
+		<p class="titStyle03">サイドナビゲーション</p>
+		<p class="mgb20">ページのurlを取得、サブナビゲーションのhrefの値を見て、<br>一致したものをアクティブに。</p>
+		<p class="mgb20">ページ内リンクつきにも対応。</p>
+
+		<p><b>※urlが、「.jp」でないと動きません</b></p>
+
+		<p class="titStyle03" style="margin-top:70px;">グローバルナビゲーション</p>
+		<p class="mgb20">パンくず、２つ目のliのテキストを取得、グローバルの画像のaltを見て、<br>一致するものをアクティブに。</p>
+
+		<p><b>※パンくずと、画像のaltに間違いがなく、完全に一致しなくては動きません</b></p>
+
+	<pre>/*----------------------------------------------
+*
+* 	globalNav and side navi active
+*
+----------------------------------------------*/
+(function($){
+	$.fn.navActiveChange = function(){
+		var self = $(this);
+
+		//urlからside navi active
+		var url = document.location.href.split('.jp').pop();
+		if(url.indexOf('#')>0){
+			url = url.split('#')[0];
+		}
+		$('#sub a[href="'+url+'"]').addClass('active');
+
+		//topicPathから globalNav active
+		var txt = self.find('#topicPath').find('li').eq(1).text(),
+				$img = self.find('#globalNav img[alt="'+txt+'"]');
+		if($img.size()>0){
+			var src = $img.attr('src').replace('_off','_on');
+			$img.attr('src',src);
+		}
+	};
+})(jQuery);
+
+
+$(function(){
+
+	$('#container').navActiveChange();
+
+
+});</pre>
+
+	</div>
+
+	<!-- sub -->
+	<div id="sub">
+
+		<ul class="subNavList mgb20">
+			<li><a href="/dirname/">一般診療</a></li>
+			<li><a href="/guide/contactlens.html">コンタクトレンズ</a></li>
+			<li><a href="/guide/ortho/">オルソケラトロジー</a>
+			<li><a href="/guide/rougan.html">多焦点眼内レンズによる老眼治療</a></li>
+		</ul>
+		<p><a href="/mytemplate/">テンプレに戻る</a></p>
+
+	</div>
+	<!-- /sub -->
+</div>
+<!-- /content -->
+
+
+</div>
+<!-- /container -->
+
+</body>
+
+</html>

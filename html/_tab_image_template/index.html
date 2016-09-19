@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>タブ切り替え</title>
+
+<script src="../basic_html/files/js/jquery.js"></script>
+<script src="../basic_html/files/js/common.js"></script>
+
+<script type="text/javascript">
+$(function(){
+
+		$("#tab01 li").jBTab();
+
+		$("#tab02 li").jBTab({
+				contentsBody : $("#section>div"),
+				defaultShow : 2,
+				cookie: true //cookieでタブを記憶する場合はtrue
+		});
+
+});
+</script>
+<style type="text/css">
+#main {
+	width: 700px !important;
+}
+
+.tabNav01 {
+	position: relative;
+	margin-bottom: 15px;
+}
+.tabNav01 li {
+	float: left;
+}
+.tabNav01 li.tab01 { width: 139px;}
+.tabNav01 li.tab02,.tabNav01 li.tab03,.tabNav01 li.tab04 { width: 140px;}
+.tabNav01 li.tab05 { width: 141px;}
+
+.tabNav01 li a {
+	background: url(tab_sprite_01.png) no-repeat;
+	display: block;
+	height: 37px;
+	overflow: hidden;
+	text-indent: -9999em;
+}
+.tabNav01 li.tab01 a { background-position: 0 0;}
+.tabNav01 li.tab02 a { background-position: -139px 0;}
+.tabNav01 li.tab03 a { background-position: -279px 0;}
+.tabNav01 li.tab04 a { background-position: -419px 0;}
+.tabNav01 li.tab05 a { background-position: -559px 0;}
+
+.tabNav01 li.tab01 a:hover, .tabNav01 li.tab01.active a { background-position: 0 -37px;}
+.tabNav01 li.tab02 a:hover, .tabNav01 li.tab02.active a { background-position: -140px -37px;}
+.tabNav01 li.tab03 a:hover, .tabNav01 li.tab03.active a { background-position: -280px -37px;}
+.tabNav01 li.tab04 a:hover, .tabNav01 li.tab04.active a { background-position: -421px -37px;}
+.tabNav01 li.tab05 a:hover, .tabNav01 li.tab05.active a { background-position: -561px -37px;}
+
+/* ----------------------------------------
+
+clearfix
+
+---------------------------------------- */
+/* Modern Browsers
+------------------------------- */
+.tabNav01:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+	line-height: 0;
+}
+/* Legacy IE
+------------------------------- */
+.tabNav01 {
+	*zoom: 1;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- content -->
+<div id="content">
+
+	<div id="main">
+
+		<div class="code-sample">
+<ul id="tab01" class="tabNav01">
+	<li class="tab01"><a href="#inCont01">すべて</a></li>
+	<li class="tab02"><a href="#inCont02">一般の方へ</a></li>
+	<li class="tab03"><a href="#inCont03">医療機関の方へ</a></li>
+	<li class="tab04"><a href="#inCont04">採用情報</a></li>
+	<li class="tab05"><a href="#inCont05">その他</a></li>
+</ul>
+<div id="contentsBody">
+	<div id="inCont01">
+	a
+	</div>
+	<div id="inCont02">
+	b
+	</div>
+	<div id="inCont03">
+	c
+	</div>
+	<div id="inCont04">
+	d
+	</div>
+	<div id="inCont05">
+	e
+	</div>
+</div>
+		</div>
+		<pre>$("#tab01 li").jBTab();</pre>
+
+		<p style="margin:50px 0 10px;"><b>クッキーあり</b></p>
+		<div class="code-sample">
+<ul id="tab02" class="tabNav01">
+	<li class="tab01"><a href="#inSec01">すべて</a></li>
+	<li class="tab02"><a href="#inSec02">一般の方へ</a></li>
+	<li class="tab03"><a href="#inSec03">医療機関の方へ</a></li>
+	<li class="tab04"><a href="#inSec04">採用情報</a></li>
+	<li class="tab05"><a href="#inSec05">その他</a></li>
+</ul>
+<div id="section">
+	<div id="inSec01">
+	a
+	</div>
+	<div id="inSec02">
+	b
+	</div>
+	<div id="inSec03">
+	c
+	</div>
+	<div id="inSec04">
+	d
+	</div>
+	<div id="inSec05">
+	e
+	</div>
+</div>
+		</div>
+	<pre>$("#tab02 li").jBTab({
+	contentsBody : $("#section>div"),
+	defaultShow : 2,
+	cookie: true //cookieでタブを記憶する場合はtrue
+});</pre>
+	<p class="mgt20"><b>css</b></p>
+	<pre>.tabNav01 {
+	position: relative;
+	margin-bottom: 15px;
+}
+.tabNav01 li {
+	float: left;
+}
+.tabNav01 li.tab01 { width: 139px;}
+.tabNav01 li.tab02,.tabNav01 li.tab03,.tabNav01 li.tab04 { width: 140px;}
+.tabNav01 li.tab05 { width: 141px;}
+
+.tabNav01 li a {
+	background: url(tab_sprite_01.png) no-repeat;
+	display: block;
+	height: 37px;
+	overflow: hidden;
+	text-indent: -9999em;
+}
+.tabNav01 li.tab01 a { background-position: 0 0;}
+.tabNav01 li.tab02 a { background-position: -139px 0;}
+.tabNav01 li.tab03 a { background-position: -279px 0;}
+.tabNav01 li.tab04 a { background-position: -419px 0;}
+.tabNav01 li.tab05 a { background-position: -559px 0;}
+
+.tabNav01 li.tab01 a:hover, .tabNav01 li.tab01.active a { background-position: 0 -37px;}
+.tabNav01 li.tab02 a:hover, .tabNav01 li.tab02.active a { background-position: -140px -37px;}
+.tabNav01 li.tab03 a:hover, .tabNav01 li.tab03.active a { background-position: -280px -37px;}
+.tabNav01 li.tab04 a:hover, .tabNav01 li.tab04.active a { background-position: -421px -37px;}
+.tabNav01 li.tab05 a:hover, .tabNav01 li.tab05.active a { background-position: -561px -37px;}
+
+/* ----------------------------------------
+
+clearfix
+
+---------------------------------------- */
+/* Modern Browsers
+------------------------------- */
+.tabNav01:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+	line-height: 0;
+}
+/* Legacy IE
+------------------------------- */
+.tabNav01 {
+	*zoom: 1;
+}</pre>
+</div>
+<div id="sub"></div>
+</div>
+<!-- /content -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+<script>
+$(function(){
+	function changecode() {
+		var elm = $('.auto-gen-code-snippet');
+		if (elm.length > 0) {
+			var html = elm.html().replace(/ active/g,'').replace(/ style="display: block;"/g,'').replace(/ style="display: none;"/g,'');
+			elm.html(html);
+		} else {
+			setTimeout(changecode, 500);
+		}
+	}
+	changecode();
+});
+</script>
+</body>
+
+</html>

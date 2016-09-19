@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>ページタイトル</title>
+
+<script src="../basic_html/files/js/jquery.js"></script>
+<script src="../basic_html/files/js/common.js"></script>
+
+<!-- ライトボックス -->
+<link rel="stylesheet" type="text/css" href="colorbox.css" media="tv,screen,print">
+<script src="jquery.colorbox-min.js"></script>
+<script>
+$(function() {
+
+	$(".youtube").colorbox({
+		iframe:true,
+		innerWidth:970,
+		innerHeight:600,
+		onOpen: function(){
+			$("#cboxClose").css("opacity",0);
+		},
+		onComplete: function(){
+			setTimeout(function(){
+				$("#cboxClose").css("opacity",1);
+			},2000);
+		}
+	});
+
+	$(".colorbox1").colorbox({
+		onOpen: function(){
+			$("#cboxClose").css("opacity",0);
+		},
+		onComplete: function(){
+			$("#cboxClose").css("opacity",1);
+		}
+	});
+
+	$(".colorbox2").colorbox({
+		rel:'colorbox2',
+		onOpen: function(){
+			$("#cboxClose").css("opacity",0);
+		},
+		onComplete: function(){
+			$("#cboxClose").css("opacity",1);
+		}
+	});
+
+	$(".colorbox3").colorbox({
+		onOpen:function(){
+			alert('onOpen: 開こうとしてる');
+		},
+		onLoad:function(){
+			alert('onLoad: コンテンツロードの開始');
+		},
+		onComplete:function(){
+			alert('onComplete: 表示完了');
+		},
+		onCleanup:function(){
+			alert('onCleanup: クローズ処理を開始');
+		},
+		onClosed:function(){
+			alert('onClosed: クローズ完了');
+		}
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content" style="padding:20px;">
+<div id="main">
+	<p class="mgt20 mgb5"><b>ライトボックス</b></p>
+	<p class="mgb20">
+	※colorbox.cssのprev.png、next.png、close.pngのパスを適宜変更する<br>
+	※グループありの場合は、rel:'グループ名'をつける<br>
+	</p>
+
+	<p>
+	<b>ファイル読み込み</b><br>
+	<pre>&lt;link rel="stylesheet" type="text/css" href="colorbox.css" media="tv,screen,print"&gt;<br>
+&lt;script src="jquery.colorbox-min.js"&gt;&lt;/script&gt;</pre></p>
+
+	<p class="mgt20"><b>youtube</b></p>
+	<p class="code-sample"><a class='youtube' href="https://www.youtube.com/embed/c4AIZcmb23s?rel=0&amp;wmode=transparent&amp;autoplay=1&vq=medium">動画</a></p>
+	<pre>$(".youtube").colorbox({
+	iframe:true,
+	innerWidth:970,
+	innerHeight:600,
+	onOpen: function(){
+		$("#cboxClose").css("opacity",0);
+	},
+	onComplete: function(){
+		setTimeout(function(){
+			$("#cboxClose").css("opacity",1);
+		},2000);
+	}
+});</pre>
+
+	<p class="mgt20"><b>グループなし</b></p>
+	<p class="code-sample"><a class="colorbox1" href="http://www.jacklmoore.com/colorbox/content/ohoopee2.jpg" title="キャプション">画像</a></p>
+	<pre>$(".colorbox1").colorbox({
+	onOpen: function(){
+		$("#cboxClose").css("opacity",0);
+	},
+	onComplete: function(){
+		$("#cboxClose").css("opacity",1);
+	}
+});</pre>
+
+	<p class="mgt20"><b>グループあり</b></p>
+	<p class="code-sample">
+		<a class="colorbox2" href="../basic_html/files/img/dummy/img01.png" title="キャプション1">画像</a>
+		<a class="colorbox2" href="http://www.jacklmoore.com/colorbox/content/ohoopee1.jpg" title="キャプション2">画像</a>
+	</p>
+	<pre>$(".colorbox2").colorbox({
+	rel:'colorbox2',
+	onOpen: function(){
+		$("#cboxClose").css("opacity",0);
+	},
+	onComplete: function(){
+		$("#cboxClose").css("opacity",1);
+	}
+});</pre>
+
+
+	<p class="mgt20"><b>コールバック</b> onOpen、onLoad、onComplete、onCleanup、onClosed</p>
+	<p class="code-sample"><a class="colorbox3" href="http://www.jacklmoore.com/colorbox/content/ohoopee2.jpg" title="キャプション1">ボタン</a></p>
+	<pre>$(".colorbox3").colorbox({
+	onOpen:function(){
+		alert('onOpen: 開こうとしてる');
+	},
+	onLoad:function(){
+		alert('onLoad: コンテンツロードの開始');
+	},
+	onComplete:function(){
+		alert('onComplete: 表示完了');
+	},
+	onCleanup:function(){
+		alert('onCleanup: クローズ処理を開始');
+	},
+	onClosed:function(){
+		alert('onClosed: クローズ完了');
+	}
+});</pre>
+
+</div>
+<div id="sub"></div>
+
+</div>
+<!-- /content -->
+
+</div>
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+<script>
+$(function(){
+	function changecode() {
+		var elm = $('.auto-gen-code-snippet');
+		if (elm.length > 0) {
+			var html = elm.html().replace(/ cboxElement/g,'');
+			elm.html(html);
+		} else {
+			setTimeout(changecode, 500);
+		}
+	}
+	changecode();
+});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>Bridge form template｜ページタイトル</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+<script src="ajaxzip3-https.js"></script>
+
+
+</head>
+
+<body>
+
+<!-- container -->
+<script>
+jQuery(function($) {
+  $("#prefecture_select").change(function() {
+    $.ajax({
+      type: "POST",
+      url: "/zip/prefecture_to_citys",
+      data: 'prefectural='+ $('#prefecture_select').val(),
+      datatype:"html",
+      beforeSend: function(){},
+      complete: function(){},
+      success: function(data){
+        $('#zip_address_btn').hide();
+        $('#town_select').hide();
+        $('#zip_select').hide();
+        set_select_of_request(data, 'city_select', '(市区町村)');
+      }
+    });
+  });
+  $("#city_select").change(function() {
+    $.ajax({
+      type: "POST",
+      url: "/zip/city_to_towns",
+      data: 'prefectural=' + $('#prefecture_select').val() + '&city=' + $('#city_select').val(),
+      datatype:"html",
+      beforeSend: function(){},
+      complete: function(){},
+      success: function(data){
+        $('#zip_address_btn').hide();
+        $('#town_select').hide();
+        $('#zip_select').hide();
+        set_select_of_request(data, 'town_select', '(地域)');
+      }
+    });
+  });
+  $("#town_select").change(function() {
+    $.ajax({
+      type: "POST",
+      url: "/zip/town_to_zips",
+      data: 'prefectural=' + $('#prefecture_select').val() + '&city=' + $('#city_select').val() + '&town=' + $('#town_select').val(),
+      datatype:"html",
+      beforeSend: function(){},
+      complete: function(){},
+      success: function(data){
+        set_select_of_request(data, 'zip_select');
+        btn_tag_view(data, 'zip_address_btn');
+      }
+    });
+  });
+})
+</script>
+
+
+
+<!-- content -->
+<div id="content">
+
+	<!-- main -->
+	<div id="main">
+
+    〒
+    <input class="default" id="address_form_zip_code1" maxlength="3" name="address_form[zip_code1]" onKeyUp="AjaxZip3.zip2addr(&#39;address_form[zip_code1]&#39;,&#39;address_form[zip_code2]&#39;,&#39;address_form[address_1]&#39;,&#39;address_form[address_2]&#39;,&#39;address_form[address_3]&#39;, null, &#39;address_list_box&#39;);" size="3" style="ime-mode: disabled" type="text" onblur="if((($('#address_form_zip_code1').val() != '') || writeErrorMessage('zip_code_msg','郵便番号（上３桁）を入力してください。')) ){$('#address_form_zip_code1').addClass('default'); $('#address_form_zip_code1').removeClass('error');$('#zip_code_msg').html('');return true;}else{$('#address_form_zip_code1').addClass('error'); $('#address_form_zip_code1').removeClass('default');return false;}" /><span id="validate_address_form_zip_code1" ></span> -
+    <input class="default" id="address_form_zip_code2" maxlength="4" name="address_form[zip_code2]" onKeyUp="AjaxZip3.zip2addr(&#39;address_form[zip_code1]&#39;,&#39;address_form[zip_code2]&#39;,&#39;address_form[address_1]&#39;,&#39;address_form[address_2]&#39;,&#39;address_form[address_3]&#39;, null, &#39;address_list_box&#39;);" size="4" style="ime-mode: disabled" type="text" onblur="if((($('#address_form_zip_code2').val() != '') || writeErrorMessage('zip_code_msg','郵便番号（下４桁）を入力してください。')) && (validate.isNum($('#address_form_zip_code2').val()) || writeErrorMessage('zip_code_msg','郵便番号（下４桁）は半角数字を入れてください。'))){$('#address_form_zip_code2').addClass('default'); $('#address_form_zip_code2').removeClass('error');$('#zip_code_msg').html('');return true;}else{$('#address_form_zip_code2').addClass('error'); $('#address_form_zip_code2').removeClass('default');return false;}" /><span id="validate_address_form_zip_code2" ></span>
+
+<div id="address_list_box" class="address_list_box" style="display: none;">
+  <div class="address_list_main">
+    <div class="address_list_header">
+      <div class="address_list_close">
+        <a href="#" onclick="$(&#39;#address_list_box&#39;).hide();return false;"><img alt="閉じる" src="/assets/btn_close.gif" /></a>
+      </div>
+    </div>
+    <div class="address_list_area">
+      <ul></ul>
+    </div>
+  </div>
+</div>
+    <a href="#" onclick="$('#zip_from_address_window_box').show();return false;">郵便番号検索</a>
+
+<div style="display:none;" id="zip_from_address_window_box">
+
+  <div onclick="$('#zip_from_address_window_box').hide();" class="zip_from_address_window_overlay"></div>
+
+  <div class="zip_from_address_window_dialog">
+
+    <div class="header">
+      <div class="close">
+        <a onclick="$('#zip_from_address_window_box').hide();return false;" href="#">
+          <img src="/assets/btn_close.gif" alt="閉じる">
+        </a>
+      </div>
+    </div>
+
+    <div class="title">ご住所から郵便番号を入力します。お住まいのご住所を選択の上「決定」ボタンをクリックしてください。 </div>
+
+    <div class="main">
+      <dl class="clearfix">
+        <dt>都道府県</dt>
+        <dd><select id="prefecture_select" name="prefecture_select"><option selected="selected" value="">(都道府県)</option>
+<option value="北海道">北海道</option>
+<option value="青森県">青森県</option>
+<option value="岩手県">岩手県</option>
+<option value="秋田県">秋田県</option>
+<option value="宮城県">宮城県</option>
+<option value="山形県">山形県</option>
+<option value="福島県">福島県</option>
+<option value="茨城県">茨城県</option>
+<option value="栃木県">栃木県</option>
+<option value="群馬県">群馬県</option>
+<option value="埼玉県">埼玉県</option>
+<option value="千葉県">千葉県</option>
+<option value="東京都">東京都</option>
+<option value="神奈川県">神奈川県</option>
+<option value="新潟県">新潟県</option>
+<option value="富山県">富山県</option>
+<option value="石川県">石川県</option>
+<option value="福井県">福井県</option>
+<option value="山梨県">山梨県</option>
+<option value="長野県">長野県</option>
+<option value="岐阜県">岐阜県</option>
+<option value="静岡県">静岡県</option>
+<option value="愛知県">愛知県</option>
+<option value="三重県">三重県</option>
+<option value="滋賀県">滋賀県</option>
+<option value="京都府">京都府</option>
+<option value="大阪府">大阪府</option>
+<option value="兵庫県">兵庫県</option>
+<option value="奈良県">奈良県</option>
+<option value="和歌山県">和歌山県</option>
+<option value="鳥取県">鳥取県</option>
+<option value="島根県">島根県</option>
+<option value="岡山県">岡山県</option>
+<option value="広島県">広島県</option>
+<option value="山口県">山口県</option>
+<option value="徳島県">徳島県</option>
+<option value="香川県">香川県</option>
+<option value="愛媛県">愛媛県</option>
+<option value="高知県">高知県</option>
+<option value="福岡県">福岡県</option>
+<option value="佐賀県">佐賀県</option>
+<option value="長崎県">長崎県</option>
+<option value="熊本県">熊本県</option>
+<option value="大分県">大分県</option>
+<option value="宮崎県">宮崎県</option>
+<option value="鹿児島県">鹿児島県</option>
+<option value="沖縄県">沖縄県</option></select></dd>
+      </dl>
+      <dl class="clearfix">
+        <dt>市区町村</dt>
+        <dd><select id="city_select" name="city_select" style="display: none;">[]</select></dd>
+      </dl>
+      <dl class="clearfix">
+        <dt>地域</dt>
+        <dd><select id="town_select" name="town_select" size="10" style="display: none;">[]</select></dd>
+      </dl>
+      <dl class="clearfix">
+        <dt>郵便番号</dt>
+        <dd><select id="zip_select" name="zip_select" style="display: none;">[]</select></dd>
+      </dl>
+    </div>
+
+    <div class="footer">
+      <a href="#" id="zip_address_btn" onclick="set_zip_address(&#39;&#39;,&#39;address_form&#39;);return false" style="display: none;"><img alt="Btn determine" src="/assets/btn_determine.gif" /></a>
+    </div>
+
+  </div>
+</div>
+
+<table>
+<tr><th>都道府県</th>
+  <td class="fill">&nbsp;</td>
+<td>
+      <span class="ex">&nbsp;例：810-0001</span>
+  </td>
+</tr>
+<tr>
+  <th>都道府県</th>
+  <td class="fill">&nbsp;</td>
+  <td>
+
+    <select id="address_form_address_1" name="address_form[address_1]"><option value="">▼都道府県を選択</option>
+<option value="北海道">北海道</option>
+<option value="青森県">青森県</option>
+<option value="岩手県">岩手県</option>
+<option value="秋田県">秋田県</option>
+<option value="宮城県">宮城県</option>
+<option value="山形県">山形県</option>
+<option value="福島県">福島県</option>
+<option value="茨城県">茨城県</option>
+<option value="栃木県">栃木県</option>
+<option value="群馬県">群馬県</option>
+<option value="埼玉県">埼玉県</option>
+<option value="千葉県">千葉県</option>
+<option value="東京都">東京都</option>
+<option value="神奈川県">神奈川県</option>
+<option value="新潟県">新潟県</option>
+<option value="富山県">富山県</option>
+<option value="石川県">石川県</option>
+<option value="福井県">福井県</option>
+<option value="山梨県">山梨県</option>
+<option value="長野県">長野県</option>
+<option value="岐阜県">岐阜県</option>
+<option value="静岡県">静岡県</option>
+<option value="愛知県">愛知県</option>
+<option value="三重県">三重県</option>
+<option value="滋賀県">滋賀県</option>
+<option value="京都府">京都府</option>
+<option value="大阪府">大阪府</option>
+<option value="兵庫県">兵庫県</option>
+<option value="奈良県">奈良県</option>
+<option value="和歌山県">和歌山県</option>
+<option value="鳥取県">鳥取県</option>
+<option value="島根県">島根県</option>
+<option value="岡山県">岡山県</option>
+<option value="広島県">広島県</option>
+<option value="山口県">山口県</option>
+<option value="徳島県">徳島県</option>
+<option value="香川県">香川県</option>
+<option value="愛媛県">愛媛県</option>
+<option value="高知県">高知県</option>
+<option value="福岡県">福岡県</option>
+<option value="佐賀県">佐賀県</option>
+<option value="長崎県">長崎県</option>
+<option value="熊本県">熊本県</option>
+<option value="大分県">大分県</option>
+<option value="宮崎県">宮崎県</option>
+<option value="鹿児島県">鹿児島県</option>
+<option value="沖縄県">沖縄県</option></select>
+  </td>
+</tr>
+<tr>
+  <th>市区町村<p class="fill">[全角]</p></th>
+  <td class="fill">&nbsp;</td>
+  <td>
+    <div id="address_msg" class="formError"></div>
+
+    <input class="default" id="address_form_address_2" maxLength="90" name="address_form[address_2]" size="35" style="ime-mode: active" type="text" onblur="if((($('#address_form_address_2').val() != '') || writeErrorMessage('address_msg','市区町村を入力してください。'))){$('#address_form_address_2').addClass('default'); $('#address_form_address_2').removeClass('error');$('#address_msg').html('');return true;}else{$('#address_form_address_2').addClass('error'); $('#address_form_address_2').removeClass('default');return false;}" /><span id="validate_address_form_address_2" ></span>
+      <span class="ex">&nbsp;例：福岡市中央区</span>
+  </td>
+</tr>
+<tr>
+  <th>町名・番地・建物名<p class="fill">[全角]</p></th>
+  <td class="fill2">&nbsp;</td>
+  <td>
+
+    <input class="default" id="address_form_address_3" maxLength="90" name="address_form[address_3]" size="50" style="ime-mode: active" type="text" />
+      <ul class="ex"><li>例：天神2-14-8 エバーライフマンション101号</li></ul>
+  </td>
+</tr>
+<tr>
+  <th>電話番号<p class="fill">[半角数字]</p></th>
+  <td class="fill">&nbsp;</td>
+  <td>
+    <div id="tel_num_msg" class="formError"></div>
+
+    <div class="boxHeightCenter">
+      <input class="default" id="address_form_tel_num" maxLength="13" name="address_form[tel_num]" onkeypress="return only_number(event);" size="15" style="ime-mode: disabled" type="text" value="" onblur="if((($('#address_form_tel_num').val() != '') || writeErrorMessage('tel_num_msg','電話番号を入力してください。')) && (!($('#address_form_tel_num').val().match( /^0[5|7|8|9]0/ )) || $('#address_form_tel_num').val().length == 11 || writeErrorMessage('tel_num_msg','電話番号は11桁で入力してください。')) && (!($('#address_form_tel_num').val().match( /^0[1-9][^0]/)) || $('#address_form_tel_num').val().length == 10 || writeErrorMessage('tel_num_msg','電話番号は10桁で入力してください。'))){$('#address_form_tel_num').addClass('default'); $('#address_form_tel_num').removeClass('error');$('#tel_num_msg').html('');return true;}else{$('#address_form_tel_num').addClass('error'); $('#address_form_tel_num').removeClass('default');return false;}" /><span id="validate_address_form_tel_num" ></span>
+    </div>
+    <div class="boxHeightCenter ex">
+      <ul>
+          <li>&nbsp;例：0921231234</li>
+        <li>&nbsp;固定電話がない場合は、携帯電話番号を登録ください。</li>
+      </ul>
+    </div>
+  </td>
+</tr>
+
+</table>
+
+
+
+	</div>
+	<!-- /main -->
+  <div id="sub"></div>
+
+</div>
+<!-- /content -->
+
+<!-- footer -->
+<div id="footer">
+	<address>COPYRIGHT © BRIDGE CORPORATION INC. ALL RIGHTS RESERVED.</address>
+</div>
+<!-- /footer -->
+
+</div>
+
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

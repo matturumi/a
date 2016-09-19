@@ -1,0 +1,194 @@
+﻿@charset "utf-8";
+
+/*------------------------------------------------------------------------------
+XXXXXXXXXX - CSS Modules Import
+Date: 2014-0X-XX
+Copyright (C) XXX. All Rights Reserved.
+------------------------------------------------------------------------------*/
+
+
+/* ----------------------------------------
+
+再定義
+
+---------------------------------------- */
+
+body {
+	line-height: 1.67;
+	background-color: #fff;
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+	color: #333;
+}
+
+a:link {
+	color: #0c5f93;
+}
+
+a:visited {
+	color: #704a99;
+}
+
+a:hover,
+a:visited:hover {
+	text-decoration: none;
+}
+
+a:active {
+	color: #0c5f93;
+}
+
+
+/* 必要な箇所だけに指定する場合は削除
+------------------------------- */
+
+img {
+	vertical-align: bottom;
+}
+
+/*
+**
+IE6,7 で font-size 11px を使用する場合は日本語フォントを明示的に指定する
+使用しない場合は削除
+
+* html body,
+* html body input,
+* html body select {
+    font-family: 'ＭＳ Ｐゴシック', Verdana, Arial, Helvetica, Sans-Serif;
+}
+
+*:first-child+html body,
+*:first-child+html body input,
+*:first-child+html body select {
+    font-family: 'メイリオ','ＭＳ Ｐゴシック', Verdana, Arial, Helvetica, Sans-Serif;
+}
+**
+*/
+
+
+/* ----------------------------------------
+
+container
+
+---------------------------------------- */
+
+#container {
+	margin: 0 auto;
+	font-size: 100%; /* fontsize 13px */
+}
+
+/*
+**
+子要素のフォントサイズ指定は以下を参照
+http://aloestudios.com/tools/emchart/
+例)
+基準フォントサイズが13pxで、
+特定の要素を12pxにしたい時は92.4%と指定
+**
+*/
+
+/* ----------------------------------------
+
+header
+
+---------------------------------------- */
+
+#header {
+}
+
+#header p.skip {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+}
+
+/* ----------------------------------------
+
+content
+
+---------------------------------------- */
+
+#content {
+}
+
+/* noscript
+------------------------------- */
+
+#content #noscript {
+	margin-bottom: 15px;
+	padding: 0.5em 1em;
+	border: 2px solid #ccc;
+	color: #333;
+}
+
+/* topicPath
+------------------------------- */
+
+#content #topicPath {
+}
+
+#content #topicPath li {
+	display: inline;
+	padding: 0 8px 0 16px;
+	background: url(../../img/common/img_topicpath_01.png) left center no-repeat;
+}
+
+#content #topicPath li#topPage {
+	padding-left: 0;
+	background: none;
+}
+
+
+/* ----------------------------------------
+
+content - main
+
+---------------------------------------- */
+
+#main {
+}
+
+
+/* ----------------------------------------
+
+content - sub
+
+---------------------------------------- */
+
+#sub {
+}
+
+
+/* ----------------------------------------
+
+footer
+
+---------------------------------------- */
+
+#footer {
+}
+
+
+/* ----------------------------------------
+
+clearfix (必要なければ消す)
+
+---------------------------------------- */
+
+/* Modern Browsers
+------------------------------- */
+
+.xxx:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+	line-height: 0;
+}
+
+/* Legacy IE
+------------------------------- */
+
+.xxx {
+	*zoom: 1;
+}

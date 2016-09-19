@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>Bridge form template｜ページタイトル</title>
+
+<script src="../basic_html/files/js/jquery.js"></script>
+<script src="../basic_html/files/js/common.js"></script>
+
+<!-- バリデーション使用時に読み込む -->
+<script src="./exvalidation.js"></script>
+<link rel="stylesheet" type="text/css" href="./exvalidation.css" media="tv,screen,print">
+
+</head>
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+
+	<!-- main -->
+	<div id="main">
+
+		<div class="section01 mgt20">
+			<h1 class="mgb15"><b>バリデーション機能</b></h1>
+
+<form action="" method="" id="validation">
+
+	<table class="tbl01">
+		<col class="colW25">
+		<col class="colW10">
+		<tr>
+			<th>お名前</th>
+			<td class="required"><p>必須</p></td>
+			<td><input type="text" name="" class="txt medium01" id="chkName"></td>
+		</tr>
+		<tr>
+			<th>ふりがな</th>
+			<td class="required"><p>必須</p></td>
+			<td><input type="text" name="" class="txt medium01" id="chkKana"></td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th>
+			<td class="required"><p>必須</p></td>
+			<td><input type="text" name="" class="txt medium02" id="chkMail"></td>
+		</tr>
+		<tr>
+			<th>パスワード</th>
+			<td class="required"><p>必須</p></td>
+			<td><input type="password" name="" class="txt medium02" id="chkPW"></td>
+		</tr>
+		<tr>
+			<th>住所</th>
+			<td class="required"><p>必須</p></td>
+			<td>〒 <input type="text" name="zip" class="txt small03" onKeyUp="AjaxZip3.zip2addr(this,'','address1','address2');" id="chkZip">
+			<p class="note01">例）0004567　ハイフンなしの7桁にてご入力ください。</p>
+			<select name="address1" class="txt mgt10 mgb10">
+				<option value="">都道府県を選択</option>
+				<option value="1">北海道</option>
+				<option value="2">青森県</option>
+				<option value="3">岩手県</option>
+				<option value="4">宮城県</option>
+				<option value="5">秋田県</option>
+				<option value="6">山形県</option>
+				<option value="7">福島県</option>
+				<option value="8">茨城県</option>
+				<option value="9">栃木県</option>
+				<option value="10">群馬県</option>
+				<option value="11">埼玉県</option>
+				<option value="12">千葉県</option>
+				<option value="13">東京都</option>
+				<option value="14">神奈川県</option>
+				<option value="15">新潟県</option>
+				<option value="16">富山県</option>
+				<option value="17">石川県</option>
+				<option value="18">福井県</option>
+				<option value="19">山梨県</option>
+				<option value="20">長野県</option>
+				<option value="21">岐阜県</option>
+				<option value="22">静岡県</option>
+				<option value="23">愛知県</option>
+				<option value="24">三重県</option>
+				<option value="25">滋賀県</option>
+				<option value="26">京都府</option>
+				<option value="27">大阪府</option>
+				<option value="28">兵庫県</option>
+				<option value="29">奈良県</option>
+				<option value="30">和歌山県</option>
+				<option value="31">鳥取県</option>
+				<option value="32">島根県</option>
+				<option value="33">岡山県</option>
+				<option value="34">広島県</option>
+				<option value="35">山口県</option>
+				<option value="36">徳島県</option>
+				<option value="37">香川県</option>
+				<option value="38">愛媛県</option>
+				<option value="39">高知県</option>
+				<option value="40">福岡県</option>
+				<option value="41">佐賀県</option>
+				<option value="42">長崎県</option>
+				<option value="43">熊本県</option>
+				<option value="44">大分県</option>
+				<option value="45">宮崎県</option>
+				<option value="46">鹿児島県</option>
+				<option value="47">沖縄県</option>
+			</select>
+			<table class="tblNoBdr">
+				<tr>
+					<th>市区町村</th>
+					<td><input type="text" name="address2" class="txt medium02"></td>
+				</tr>
+				<tr>
+					<th>マンション名</th>
+					<td><input type="text" name="" class="txt medium02"></td>
+				</tr>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<th>電話番号</th>
+			<td class="required"><p>必須</p></td>
+			<td><input type="text" name="" class="txt medium01" id="chkTel">　<span class="note01">ハイフンなし、半角英数にてご入力ください。</span></td>
+		</tr>
+		<tr>
+			<th>メールアドレス</th>
+			<td class="required"><p>必須</p></td>
+			<td><input type="text" name="" class="txt large01" id="chkMail01"></td>
+		</tr>
+		<tr>
+			<th>メールアドレス<br>
+			確認用（再入力）</th>
+			<td class="required"><p>必須</p></td>
+			<td><input type="text" name="" class="txt large01" id="chkMail02"></td>
+		</tr>
+		<tr>
+			<th>メールマガジン</th>
+			<td class="required"><p>必須</p></td>
+			<td><span id="chkCheckbox"><input type="checkbox" name="learned[]" id="chk03_01" class="check" value="2"> <label for="chk03_01">購読する</label> <input type="checkbox" name="learned[]" id="chk03_02" class="check" value="2"> <label for="chk03_02">購読する</label> </span></td>
+		</tr>
+	</table>
+	<ul class="btnUnit01">
+		<li><input type="submit" value="確認画面へ" class="formBtn01"></li>
+	</ul>
+</form>
+
+			<style>.exp{font-family: "メイリオ";font-size: 14px;color: #555;margin-top: 20px;}</style>
+			<div class="exp">
+				（1）下記を読み込ませる<br>
+				<pre>
+&lt;script src="./exvalidation.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" type="text/css" href="./exvalidation.css" media="tv,screen,print"&gt;</pre>
+				<br>
+				（3）formタグに idをつける<br>
+				<pre>
+&lt;form action="" method="" id="validation"&gt;</pre>
+				<br>
+				（4）バリデーションをするform系要素に idをつける<br>
+
+				<pre>名前→&lt;input type="text" name="" class="txt medium01" id="chkName"&gt;</pre>
+				<br>
+				（5）exvalidation.js内で、（3）でつけたidに対し実行する
+<pre>
+$("#validation").exValidation({
+	firstValidate: true,
+	errInsertPos: 'after',
+	errPosition: 'fixed',
+	stepValidation: true,
+	rules: {
+		chkName: "chkrequired",
+		chkKana: "chkrequired chkfurigana",
+		chkMail: "chkrequired chkhankaku chkemail",
+		chkPW: "chkrequired chkhankaku",
+		chkZip: "chkzip chknumonly chkrequired",
+		chkAddress01: "chkgroup chkselect",
+		chkAddress02: "chkrequired",
+		chkTel:  "chkrequired chkhankaku chknumonly",
+		chkMail01: "chkrequired chkhankaku chkemail",
+		chkMail02: "chkrequired chkretype-chkMail01",
+		chkCheckbox: "chkcheckbox"
+	}
+});
+</pre><br>
+				（6）（4）で付けたidに対して値を適宜指定する<br>
+				<pre>名前→chkName: "chkrequired"</pre><br>
+				※最後のプロパティの値の後には「,」はつけない。
+				<br>
+
+			</div>
+
+		</div>
+	</div>
+	<!-- /main -->
+
+	<div id="sub"></div>
+
+</div>
+<!-- /content -->
+
+<!-- footer -->
+<div id="footer">
+	<address>COPYRIGHT © BRIDGE CORPORATION INC. ALL RIGHTS RESERVED.</address>
+</div>
+<!-- /footer -->
+
+</div>
+
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

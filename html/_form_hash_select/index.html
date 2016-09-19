@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>プルダウンと＃でフォーム出し分け</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+
+//プルダウンと＃でフォーム出し分け
+$(function(){
+	var formList = $('#formList li.formBox'),
+		hash = location.hash.slice(1);
+
+	// selectの値をもらってもし＃と同じなら-..それ以外を隠してそれ以外を表示
+	function getValue($elm){
+		var val = $elm.val();
+		if(hash){
+			val = hash;
+			hash = '';
+			$('#selectForm option[value="'+val+'"]').prop('selected', true);
+		}
+		formList.hide();
+		$('#'+val).show();
+	}
+
+	// selectの値が変わったら値を関数に渡す
+	$('select#selectForm').change(function(){
+		return getValue($(this));
+	}).change();
+});
+
+// カタログダウンロードIDを申請する
+$(function(){
+	var cBox = $("#catalogCheckbox");
+
+	$("#selectCatalog").change(function(){
+	    if($("#selectCatalog").val() == "太陽電池製造装置・検査装置"){
+	        cBox.css("display","block");
+	    } else if ($("#selectCatalog").val() == "真空包装機"){
+	        cBox.css("display","block");
+	    } else {
+	        cBox.css("display","none");
+	    }
+	});
+});
+
+</script>
+
+
+</head>
+<body>
+
+	<div id="content">
+		<div id="main">
+			<select id="selectForm" class="chkselect" name="">
+				<option value="formSet01">#formSet01</option>
+				<option value="formSet02">#formSet02</option>
+				<option value="formSet03">#formSet03</option>
+				<option value="formSet04">#formSet04</option>
+			</select>
+
+			<ul id="formList">
+				<li id="formSet01" class="formBox">
+					<h2>01 #formSet01</h2>
+					<form action="" method=""></form>
+				</li>
+				<li id="formSet02" class="formBox">
+					<h2>02 #formSet02</h2>
+					<form action="" method=""></form>
+				</li>
+				<li id="formSet03" class="formBox">
+					<h2>03 #formSet03</h2>
+					<form action="" method=""></form>
+				</li>
+				<li id="formSet04" class="formBox">
+					<h2>04 #formSet04</h2>
+					<form action="" method=""></form>
+				</li>
+			</ul>
+		</div>
+		<div id="sub"></div>
+	</div>
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+</html>

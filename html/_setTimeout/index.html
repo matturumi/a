@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+
+<title>読み込み完了まで繰り返し</title>
+
+<script src="../basic_html/files/js/jquery.js"></script>
+<script src="../basic_html/files/js/common.js"></script>
+
+</head>
+
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+	<div id="main">
+
+<pre><code>function timeoutFunc() {
+	var obj = $('.obj');
+	if (obj.length > 0) {
+
+		//ここにかく
+
+	} else {
+		setTimeout(timeoutFunc, 500);
+	}
+}
+timeoutFunc();
+</code></pre>
+
+<div class="mgt20">
+	<pre><code>var queue = null, // キューをストック
+		waitTime = 500; // 0.5秒後に実行
+
+$(window).on('resize',function(){
+
+	// イベント発生の都度、キューをキャンセル
+	clearTimeout( queue );
+	 
+	// waitTimeで指定したミリ秒後に所定の処理を実行
+	// 経過前に再度イベントが発生した場合
+	// キューをキャンセルして再カウント
+	queue = setTimeout(function() {
+		// リサイズ時に行う処理
+	}, waitTime );
+
+});
+
+	</code></pre>
+</div>
+
+
+	</div>
+	<div id="sub"></div>
+</div>
+<!-- /content -->
+
+
+</div>
+
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

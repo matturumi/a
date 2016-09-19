@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>ページタイトル</title>
+
+<script src="../basic_html/files/js/jquery.js"></script>
+<script src="../basic_html/files/js/common.js"></script>
+
+<style>
+#footer {
+	background: #ddd;
+	text-align: center;
+}
+
+/* ----------------------------------------
+
+- 以下！！
+
+---------------------------------------- */
+html,body{
+	height:100%;
+}
+#container{
+	width: 100%;
+	position: relative;
+	min-height: 100%;
+}
+#content{
+	padding-bottom: 90px; /*フッターの高さ+40くらい*/
+}
+#footer{
+	width: 100%;
+	height:50px; /*フッターの高さ 適宜変更*/
+	position:absolute;
+	bottom:0;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+	<div id="main">
+	<b>フッターの下部固定</b><br>
+	※フッターの高さは適宜指定。
+
+	<p class="mgt30">
+	<pre>html,body{
+	height:100%;
+}
+#container{
+	width: 100%;
+	position: relative;
+	min-height: 100%;
+}
+#content{
+	padding-bottom: 90px; /*フッターの高さ+40くらい*/
+}
+#footer{
+	width: 100%;
+	height:50px; /*フッターの高さ 適宜変更*/
+	position:absolute;
+	bottom:0;
+}</pre>
+	</p>
+</div>
+
+<div id="sub"></div>
+
+</div>
+<!-- /content -->
+
+<!-- footer -->
+<div id="footer">フッター</div>
+<!-- /footer -->
+
+</div>
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

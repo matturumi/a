@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>フォーム　テキストエリアの注釈</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+<script>
+/*
+ * jQuery Form Tips 1.2.3
+ * By Manuel Boy (http://www.manuelboy.de)
+ * Copyright (c) 2010 Manuel Boy
+ * Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
+*/
+(function($){
+
+	$.fn.formtips = function(options) {
+
+		// handle options
+		var settings = jQuery.extend({
+			tippedClass: "tipped"
+		}, options);
+
+		return this.each(function() {
+
+			// prepare input elements an textareas
+			var e = $(this);
+
+			// do not apply form tips to inputs of type file, radio or checkbox
+			var type = $(e).attr('type');
+			if(type != 'file' && type != 'checkbox' && type != 'radio') {
+
+				// handle focus event
+				$(e).bind('focus', function() {
+					if($(e).is('textarea')) {
+						console.log($(this).text());
+						if($(this).val() == lv) {
+							$(this).text('').removeClass(settings.tippedClass);
+						}
+					} else {
+						if($(this).val() == lv) {
+							$(this).val('').removeClass(settings.tippedClass);
+						}
+					}
+					return false;
+				});
+
+				// handle blur event
+				$(e).bind('blur', function() {
+					var lv = $(this).attr('title');
+					if($(e).is('textarea')) {
+						console.log($(this).val());
+						if($(this).val() == '') {
+							$(this).text(lv).addClass(settings.tippedClass);
+						}
+					} else {
+						if($(this).val() == '') {
+							$(this).val(lv).addClass(settings.tippedClass);
+						}
+					}
+					return false;
+				});
+
+				// handle initial text
+				var lv = $(e).attr('title');
+				if($(e).is('textarea')) {
+					if($(e).text() == '' || $(e).text() == $(this).attr('title')) {
+						$(e).text(lv).addClass(settings.tippedClass);
+					} else {
+						$(e).removeClass(settings.tippedClass);
+					}
+				} else {
+					if($(e).val() == '' || $(e).val() == $(this).attr('title')) {
+						$(e).val(lv).addClass(settings.tippedClass);
+					} else {
+						$(e).removeClass(settings.tippedClass);
+					}
+				}
+
+				// handle removal of default value
+				$(e).parentsUntil('form').parent().submit(function() {
+					var lv = $(e).attr('title');
+					if($(e).is('textarea')) {
+						if($(e).text() == lv) {
+							$(e).text('').removeClass(settings.tippedClass);
+						}
+					} else {
+						if($(e).val() == lv) {
+							$(e).val('').removeClass(settings.tippedClass);
+						}
+					}
+				});
+
+			}
+
+		});
+	};
+
+})(jQuery);
+
+/*----------------------------------------------
+*
+* 	jQuery ready
+*
+----------------------------------------------*/
+
+$(function(){
+
+		//検索フォームヒント
+		var hint = $(".hint");
+		hint.formtips();
+
+});
+
+
+</script>
+
+<style>
+.hint.tipped {
+	color: #aaa;
+}
+</style>
+
+
+
+
+
+</head>
+
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+
+<!-- content -->
+<div id="content">
+
+	<!-- main -->
+	<div id="main">
+
+		<div class="section01">
+			<div class="code-sample">
+				<input type="text" name="find_etc" class="txt medium02 mgt10 hint" value="" title="入力して下さい">
+			</div>
+			<br>
+			<div class="code-sample">
+				<textarea class="txt large01 hint" rows="4" cols="30" title="入力して下さい"></textarea>
+			</div>
+
+		</div>
+	</div>
+	<!-- /main -->
+	<div id="sub"></div>
+
+</div>
+<!-- /content -->
+
+<!-- footer -->
+<div id="footer">
+	<address>COPYRIGHT © BRIDGE CORPORATION INC. ALL RIGHTS RESERVED.</address>
+</div>
+<!-- /footer -->
+
+</div>
+
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

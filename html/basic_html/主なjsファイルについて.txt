@@ -1,0 +1,19 @@
+主なjsファイルについて
+
+------------------------------
+
+- iepngfix_v2
+IE6で透過pngを有効にする為に。
+
+参考：
+http://www.twinhelix.com/css/iepngfix/
+
+------------------------------
+
+- common.js
+
+scrollsmoothly.js、jquery.cookie.js、 jBRollover.js、
+jQuery Form Tips、jBTabを含む。
+jQuery依存。
+
+------------------------------

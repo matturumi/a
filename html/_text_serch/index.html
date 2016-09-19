@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+
+<title>テキスト検索</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+<script type="text/javascript">
+$(function(){
+
+
+		var inputTxt = new RegExp($('#searchTxt').val(),'i');
+		var noresultFlg;
+		var tr = $('#searchTbl').find('tr'),
+				trL = tr.length;
+
+		//検索ゼロ
+		function noresultFunc(){
+			if(noresultFlg){
+				$('#searchTbl').next('p').html('&#12461;&#12540;&#12527;&#12540;&#12489;&#12399;&#26908;&#32034;&#12373;&#12428;&#12414;&#12379;&#12435;&#12391;&#12375;&#12383;&#12290;');
+			} else {
+				$('#searchTbl').next('p').html('');
+			}
+		}
+		$('#searchTbl').next('.noresult').remove().end().after('<p class="noresult alnL mgb30"></p>');
+
+		$('#searchTxt').val('').keyup(function(){
+
+			//inputのテキスト取得
+			inputTxt = new RegExp($(this).val(),'i');
+
+			//空白の時
+			if($(this).val()===null){
+
+			//入力した時
+			} else {
+				tr.hide();
+				noresultFlg= true;
+
+				for(var i = 0 ; i<trL; i++){
+
+					//キーワードとマッチしたら
+					if($(tr[i]).children('td').text().match(inputTxt)){
+						$(tr[i]).show();
+						noresultFlg= false;
+					}
+				}
+
+				//検索ゼロ
+				noresultFunc();
+
+			}
+
+		});
+
+});
+</script>
+
+
+</head>
+
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+	<div id="main">
+		<p class="mgb20">キーワードを検索：　<input type="text" class="txt medium02" id="searchTxt"></p>
+
+		<table class="tbl01" id="searchTbl">
+			<col class="colW25">
+			<col>
+			<tr>
+				<th></th>
+				<td>iPhone 4 A1332 ※1</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>iPhone 5s A1453 ※1,3</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>DELL Streak Pro GS01</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>Venue</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>Ascend D2 HW-03E</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>Pocket WiFi S II S41HW ※9</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>Ascend G6</td>
+			</tr>
+			<tr>
+				<th></th>
+				<td>Optimus bright L-07C</td>
+			</tr>
+		</table>
+	</div>
+	<div id="sub"></div>
+</div>
+<!-- /content -->
+
+<!-- footer -->
+<div id="footer">
+	<address>COPYRIGHT © BRIDGE CORPORATION INC. ALL RIGHTS RESERVED.</address>
+</div>
+<!-- /footer -->
+
+</div>
+
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>ページタイトル</title>
+
+<script src="../basic_html/files/js/jquery.js"></script>
+
+
+<!--カレンダー -->
+<link rel="stylesheet" type="text/css" href="./event_calendar.css" media="tv,screen,print">
+<script src="./jquery.calendar.js"></script>
+<script>
+$(function(){
+
+	//カレンダー
+	$("#calendar").calendar({
+		navi: {
+			ja: ['\u524d\u6708', '\u6b21\u6708']
+		},
+		// イベントの設定
+		events: {
+'2015-1-1': {
+url: '/event/?act=search&term_bgn=2014/01/08&term_end=2014/01/08'
+},
+'2015-01-08': {
+url: '/event/?act=search&term_bgn=2014/01/08&term_end=2014/01/08'
+}
+		}
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+<!-- content -->
+<div id="content">
+	<div id="main">
+		<p class="mgb20">■注意事項<br>
+月の移動を前後3ヶ月に制限している。無制限にする場合は、<br>
+jquery.calendar_月移動3ヶ月制限なし.js<br>
+の方を使用。</p>
+		<div id="calendar"></div>
+
+		<p class="mgt20"><b>ファイル読み込み</b></p>
+		<pre>&lt;link rel="stylesheet" type="text/css" href="./event_calendar.css" media="tv,screen,print"&gt;
+&lt;script src="./jquery.calendar.js"&gt;&lt;/script&gt;</pre>
+		<p class="mgt20"><b>html</b></p>
+		<pre>&lt;div id="calendar"&gt;&lt;/div&gt;</pre>
+		<p class="mgt20"><b>js</b></p>
+		<pre>$("#calendar").calendar({
+	navi: {
+		ja: ['\u524d\u6708', '\u6b21\u6708']
+	},
+	// イベントの設定
+	events: {
+'2015-1-1': {
+url: '/event/?act=search&term_bgn=2014/01/08&term_end=2014/01/08'
+},
+'2015-01-08': {
+url: '/event/?act=search&term_bgn=2014/01/08&term_end=2014/01/08'
+}
+	}
+});</pre>
+	</div>
+	<div id="sub"></div>
+
+</div>
+<!-- /content -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

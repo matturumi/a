@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../../basic_html/files/css/common/import.css" media="tv,screen,print">
+
+<title>PC</title>
+
+<script src="../../basic_html/files/js/jquery.js"></script>
+<script src="../../basic_html/files/js/common.js"></script>
+
+<style>
+#smpBnr {
+	display: block;
+	padding: 15px 5px 16px;
+	background: #E3D9F4;
+	border: 1px solid #b5d7e3;
+	text-align: center;
+	font-size: 44px;
+	color: #17072e;
+	margin-bottom: 5px;
+}
+</style>
+
+
+<script type="text/javascript">
+(function($){
+
+	//userAgent
+	var ua = navigator.userAgent;
+	var smartFlg = (ua.indexOf('iPhone') > 0 && ua.indexOf('iPad') == -1) || ua.indexOf('iPod') > 0 || (ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0 || ua.indexOf('Windows Phone') > 0);
+
+	//url
+	var url = document.location.href.split('.jp/').pop();
+	var topFlg = (url==''||url=='index.html');
+	var hasSpPageFlg = (url.indexOf('topic') === -1 && url.indexOf('inquiry') === -1);
+
+	//pcViewCookie
+	var pcViewCookie = $.cookie('xx_pc');
+
+	//sp top reload
+	if(topFlg && smartFlg && (pcViewCookie!='true')){
+		window.location.href = './sp/index.html';
+	}
+	//sp page reload
+	if(hasSpPageFlg && !topFlg && smartFlg && (pcViewCookie!='true')){
+		location.href = '/sp/'+ url;
+	}
+
+	$(function(){
+
+		//sp bnr add
+		if (smartFlg && hasSpPageFlg) {
+			$('#container').prepend('<div id="smpBnr"><a href="#">スマートフォンサイトへ</a></div>');
+			$('#smpBnr a').on('click',function(e){
+				e.preventDefault();
+				$.cookie('xx_pc', false, {path:'/', expires:365});
+				pcViewCookie = $.cookie('xx_pc');
+				location.href = './sp/' + url;
+			});
+		}
+
+	});
+
+
+})(jQuery);
+</script>
+
+
+</head>
+
+<body>
+
+<!-- content -->
+<div id="content">
+	<div id="main">
+
+	<b>◯pc</b>
+
+<pre>#smpBnr {
+	display: block;
+	padding: 15px 5px 16px;
+	background: #E3D9F4;
+	border: 1px solid #b5d7e3;
+	text-align: center;
+	font-size: 44px;
+	color: #17072e;
+	margin-bottom: 5px;
+}</pre>
+
+	<p class="mgt15">※PC→SP該当ページへ</p>
+<pre>(function($){
+
+	//userAgent
+	var ua = navigator.userAgent;
+	var smartFlg = (ua.indexOf('iPhone') > 0 && ua.indexOf('iPad') == -1) || ua.indexOf('iPod') > 0 || (ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0 || ua.indexOf('Windows Phone') > 0);
+
+	//url
+	var url = document.location.href.split('.jp/').pop();
+	var topFlg = (url==''||url=='index.html');
+	var hasSpPageFlg = (url.indexOf('topic') === -1 && url.indexOf('inquiry') === -1);
+
+	//pcViewCookie
+	var pcViewCookie = $.cookie('xx_pc');
+
+	//sp top reload
+	if(topFlg && smartFlg && (pcViewCookie!='true')){
+		window.location.href = './sp/index.html';
+	}
+	//sp page reload
+	if(hasSpPageFlg && !topFlg && smartFlg && (pcViewCookie!='true')){
+		location.href = '/sp/'+ url;
+	}
+
+	$(function(){
+
+		//sp bnr add
+		if (smartFlg && hasSpPageFlg) {
+			$('#container').prepend('&lt;div id="smpBnr"&gt;&lt;a href="#"&gt;スマートフォンサイトへ&lt;/a&gt;&lt;/div&gt;');
+			$('#smpBnr a').on('click',function(e){
+				e.preventDefault();
+				$.cookie('xx_pc', false, {path:'/', expires:365});
+				pcViewCookie = $.cookie('xx_pc');
+				location.href = './sp/' + url;
+			});
+		}
+
+	});
+
+
+})(jQuery);</pre>
+
+	<p class="mgt30"><b>◯SP</b></p>
+<pre>&lt;ul id="hdrNavUnit"&gt;
+	&lt;li id="pcBtn"&gt;&lt;a href="../"&gt;&lt;img src="hdr_nav_pc.png" alt="PCサイトへ" width="49" height="27"&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+	<p class="mgt15">※SP→PCトップへ</p>
+<pre>//cookie false make
+$.cookie('xx_pc', false, {path:'/', expires:365});
+var pcViewCookie = $.cookie('xx_pc');
+
+$(function(){
+
+	//pc link
+	$('#pcBtn').on('click',function(e){
+		e.preventDefault();
+
+		//pc cookie make
+		$.cookie('xx_pc', true, {path:'/', expires:365});
+		pcViewCookie = $.cookie('xx_pc');
+
+		//pc page reload
+		var href = location.href.replace('/sp','');
+		window.location.href = href;
+
+	});
+
+});</pre>
+	</div>
+	<div id="sub"></div>
+</div>
+<!-- /content -->
+<script src="/mytemplate/template.js"></script>
+<link rel="stylesheet" type="text/css" href="/mytemplate/template.css" media="all">
+
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="files/css/nivo-slider.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="files/css/common/print.css" media="print">
+
+<title>ページタイトル</title>
+
+<script src="files/js/jquery.js"></script>
+<script src="files/js/common.js"></script>
+
+<script src="files/js/jquery.nivo.slider.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	jQuery(window).load(function(){
+		jQuery("#slider").nivoSlider({
+		effect:"fade",//画像切替時の演出を変更//
+		slices:15,//画像切替の演出でスライス系を選択した場合のスライス数//
+		boxCols:8,//画像切替の演出でボックス系を選択した場合の列数//
+		boxRows:4,//画像切替の演出でボックス系を選択した場合の行数//
+		animSpeed:400,//画像切替の時間（ミリ秒）//
+		pauseTime:8000,//画像切替時の演出を変更//
+		startSlide:0,//画像を表示する時間（ミリ秒）//
+		directionNav:true,//next/backを表示するか否か（true/false）//
+		controlNav:true,//ページナビを表示するか否か（true/false）//
+		controlNavThumbs:false,//ページナビにサムネイルを使うか否か（true/false）//
+		pauseOnHover:true,//画像にマウスオーバーしている間は画像を切り替えないようにするか否か（true/false）//
+		manualAdvance:false//自動的に切り替えるのをやめるか否か（true/false）//
+		});
+	});
+
+});
+</script>
+
+
+</head>
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- header -->
+<div id="header">
+
+	<p class="skip"><a href="#content">本文までスキップ</a></p>
+
+	<h1 id="siteID"><a href="./">ページタイトルなど</a></h1>
+
+	
+</div>
+<!-- /header -->
+
+<noscript><p id="noscript">当サイトでは、JavaScriptを使用しております。<br>
+JavaScriptを有効にしていただきますと、より快適にご覧いただけます。</p></noscript>
+
+<!-- content -->
+<div id="content">
+	<div id="mv">
+
+		<div class="slider-wrapper">
+			<div id="slider" class="nivoSlider">
+				<img src="files/img/top/toystory.jpg" alt="">
+				<img src="files/img/top/up.jpg" alt="">
+				<img src="files/img/top/walle.jpg" alt="">
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- /content -->
+
+<!-- footer -->
+<div id="footer">フッター</div>
+<!-- /footer -->
+
+</div>
+<!-- /container -->
+
+</body>
+
+</html>

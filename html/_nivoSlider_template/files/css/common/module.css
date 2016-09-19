@@ -1,0 +1,260 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------------------
+XXXXXXXXXX - CSS Modules Import
+Date: 2014-0X-XX
+Copyright (C) XXX. All Rights Reserved.
+------------------------------------------------------------------------------*/
+
+/******************************************
+- Title Style
+- Section Style
+- List Style
+- Button Style
+- Table Style
+- Form Style
+- Text Style
+- Stopgap Class
+- Clearfix
+*******************************************/
+
+/* ----------------------------------------
+
+- Title Style
+
+---------------------------------------- */
+
+/* title
+------------------------------- */
+
+.title01 {
+}
+
+/* ----------------------------------------
+
+- Section Style
+
+---------------------------------------- */
+
+/* section
+------------------------------- */
+
+.section01 {
+}
+
+/* imgSec
+------------------------------- */
+.imgSec01 {
+	margin-bottom: 15px;
+}
+.imgSec01 .imgL {
+	float: left;
+	margin: 3px 25px 10px 0;
+}
+.imgSec01 .imgR {
+	float: right;
+	margin: 3px 0 10px 25px;
+}
+.imgSec01 .inTxt {
+	overflow: hidden;
+}
+
+/* ----------------------------------------
+
+- List Style
+
+---------------------------------------- */
+
+/* list
+------------------------------- */
+
+.list01 {
+	padding-left: 20px;
+}
+
+.list01 li {
+	list-style-type: disc;
+}
+
+/* defList
+------------------------------- */
+
+.defList {
+	padding-left: 30px;
+	margin-bottom: 15px;
+}
+
+ul.defList li {
+	list-style-type: disc;
+}
+
+ol.defList li {
+	list-style-type: decimal;
+}
+
+/* ----------------------------------------
+
+- Button Style
+
+---------------------------------------- */
+
+/* btn
+------------------------------- */
+.btnUnit01 {
+	text-align: center;
+}
+.btnUnit01 li {
+	display: inline;
+	padding: 0 10px;
+}
+.btnUnit01 input {
+	vertical-align: bottom;
+}
+
+/* ----------------------------------------
+
+- Table Style
+
+---------------------------------------- */
+
+/* tbl
+------------------------------- */
+.tbl01 {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.tbl01 th,
+.tbl01 td {
+	padding: 0.4em 1em;
+	border: 1px solid #ccc;
+	vertical-align: top;
+}
+.tbl01 th {
+	background-color: #eee;
+	font-weight: 700;
+}
+
+/* col
+------------------------------- */
+.colW05 { width: 5%;}
+.colW08 { width: 8%;}
+.colW10 { width: 10%;}
+.colW15 { width: 15%;}
+.colW20 { width: 20%;}
+.colW25 { width: 25%;}
+.colW30 { width: 30%;}
+.colW35 { width: 35%;}
+.colW40 { width: 40%;}
+.colW45 { width: 45%;}
+.colW50 { width: 50%;}
+
+/* ----------------------------------------
+
+- Form Style
+(input要素の幅は適宜調整する)
+
+---------------------------------------- */
+
+input.txt,
+textarea.txt,
+select.txt {
+	padding: 2px;
+	border: 1px solid #ccc;
+	vertical-align: baseline;
+}
+input.check {
+	position: relative;
+	top: 2px;
+	margin-right: 3px;
+}
+
+input.small01 { width: 5em;}
+input.small02 {	width: 50px;}
+
+input.medium01 { width: 150px;}
+input.medium02 { width: 250px;}
+input.medium03 { width: 350px;}
+
+textarea.large01,
+input.large01 {
+	width: 98%;
+}
+
+
+
+
+/* ----------------------------------------
+
+- Text Style
+
+---------------------------------------- */
+
+.iconPdf {
+	background: url(../../img/common/icon_pdf.png) no-repeat 0 .1em;
+	padding-left: 20px;
+}
+
+
+/* ----------------------------------------
+
+- Stopgap Class
+(以下は暫定的、又はイレギュラーな場合のみ使用。通常は使用しない)
+
+---------------------------------------- */
+
+.clear {
+	clear: both;
+}
+
+.hidden {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+}
+
+.mgt0 { margin-top: 0 !important;}
+.mgt5 {	margin-top: 5px !important;}
+.mgt10 {	margin-top: 10px !important;}
+.mgt15 {	margin-top: 15px !important;}
+.mgt20 {	margin-top: 20px !important;}
+.mgt30 {	margin-top: 30px !important;}
+.mgt40 {	margin-top: 40px !important;}
+.mgb0 { margin-bottom: 0 !important;}
+.mgb5 {	margin-bottom: 5px !important;}
+.mgb10 {	margin-bottom: 10px !important;}
+.mgb15 {	margin-bottom: 15px !important;}
+.mgb20 {	margin-bottom: 20px !important;}
+.mgb30 {	margin-bottom: 30px !important;}
+.mgb40 {	margin-bottom: 40px !important;}
+.alnC { text-align: center !important;}
+.alnR { text-align: right !important;}
+.alnL{ text-align: left !important;}
+.nowrap { white-space: nowrap;}
+.breakWord { word-wrap: break-word;}
+
+/* ----------------------------------------
+
+clearfix
+
+---------------------------------------- */
+
+/* Modern Browsers
+------------------------------- */
+
+.clearfix:after,
+.imgSec01:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+	line-height: 0;
+}
+
+/* Legacy IE
+------------------------------- */
+
+.clearfix,
+.imgSec01 {
+	*zoom: 1;
+}

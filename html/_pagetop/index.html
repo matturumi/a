@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+
+<title>ページトップへ</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+<style>
+#container {
+	position: relative;
+}
+#main {
+	padding-bottom: 300px;
+}
+#footer {
+	width: 970px;
+	height: 300px;
+	margin: 0 auto;
+	background-color: #ccc;
+}
+#pagetop {
+	position: absolute;
+	left: 50%;
+	margin-left: 503px;
+	text-indent: 0;
+}
+</style>
+
+<script>
+/*
+ *
+ * Page top
+ *
+ */
+(function($){
+		$.fn.pageTop = function(){
+
+				var self = $(this),
+						docHeight = $(document).height(),
+						scrolledHeight;
+
+				self.hide();
+				$(window).scroll(function () {
+					if ( $(this).scrollTop() > 100 ) {
+						self.fadeIn("fast");
+					} else {
+						self.fadeOut("fast");
+					}
+				});
+
+				$(window).bind("scroll", function() {
+					scrolledHeight = $(window).height() + $(window).scrollTop();
+					scrollEndHeight = $("#footer").height()+10;
+					// rightPosition = ($(window).width() - 980) / 2 - 88;
+					if ( (docHeight - scrolledHeight)  <= (scrollEndHeight - 10) ) {
+						self.css({
+							"position":"absolute",
+							"bottom": scrollEndHeight
+						});
+					} else {
+						self.css({
+							"position":"fixed",
+							"bottom": 20
+						});
+					}
+				});
+		};
+})(jQuery);
+
+$(function(){
+
+	//ページトップへ
+	$('#pagetop').pageTop();
+
+});
+
+</script>
+
+
+
+
+</head>
+
+<body>
+
+
+<!-- container -->
+<div id="container">
+
+	<div id="content">
+		<div id="main">
+			<p><b>html</b></p>
+			<pre>&lt;div id="footer"&gt;
+	&lt;p id="pagetop"&gt;&lt;a href="#container"&gt;&lt;img src="http://www.himeji-kanko.jp/files_foreign/img/common/btn_pgtop.png" alt="pagetop" width="75" height="75"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+			<p class="mgt30"><b>css</b></p>
+			<pre>#container {
+	position: relative;
+}
+#pagetop {
+	position: absolute;
+	left: 50%;
+	margin-left: 503px;
+	text-indent: 0;
+}</pre>
+			<p class="mgt30"><b>js</b></p>
+<pre>/*
+ *
+ * Page top
+ *
+ */
+(function($){
+		$.fn.pageTop = function(){
+
+				var self = $(this),
+						docHeight = $(document).height(),
+						scrolledHeight;
+
+				self.hide();
+				$(window).scroll(function () {
+					if ( $(this).scrollTop() > 100 ) {
+						self.fadeIn("fast");
+					} else {
+						self.fadeOut("fast");
+					}
+				});
+
+				$(window).bind("scroll", function() {
+					scrolledHeight = $(window).height() + $(window).scrollTop();
+					scrollEndHeight = $("#footer").height()+10;
+					// rightPosition = ($(window).width() - 980) / 2 - 88;
+					if ( (docHeight - scrolledHeight) <= (scrollEndHeight - 10) ) {
+						self.css({
+							"position":"absolute",
+							"bottom": scrollEndHeight
+						});
+					} else {
+						self.css({
+							"position":"fixed",
+							"bottom": 20
+						});
+					}
+				});
+		};
+})(jQuery);</pre>
+
+			<pre>//ページトップへ
+$('#pagetop').pageTop();</pre>
+
+		</div>
+		<div id="sub"></div>
+
+	</div>
+	<div id="footer">
+		<p id="pagetop"><a href="#container"><img src="http://www.himeji-kanko.jp/files_foreign/img/common/btn_pgtop.png" alt="pagetop" width="75" height="75"></a></p>
+	</div>
+
+</div>
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+</body>
+
+</html>

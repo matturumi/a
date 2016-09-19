@@ -1,0 +1,21 @@
+ディレクトリ構造
+
+<Dir>Root 
+　│
+　├ index.html(トップページ)
+　│
+　├ <Dir>files(html以外の各ファイルを格納)
+　│　│
+　│　├ <Dir>css
+　│　│　├ <Dir>common (共通のcss)
+　│　│　└ (各コンテンツ毎のcss)
+　│　│
+　│　├ <Dir>img
+　│　│　├ <Dir>common (共通のimg)
+　│　│　└ <Dir>(各コンテンツ毎のimg)
+　│　│
+　│　└ <Dir>js
+　│　　　└ (全てのjsファイル)
+　│
+　└ <Dir>(二階層目の各フォルダ)
+　　　└ index.html

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>ページタイトル</title>
+
+<script src="../basic_html/files/js/jquery.js"></script>
+<script src="../basic_html/files/js/common.js"></script>
+
+<style>
+
+/* ----------------------------------------
+
+- 以下！！
+
+---------------------------------------- */
+.tglBox {
+	display: none;
+}
+.noJS .tglBox {
+	display: block;
+}
+
+</style>
+
+<script>
+$(function() {
+	$('.tglList').find('.tglBtn').css({
+		'cursor': 'pointer'
+	}).on('click',function(){
+		$(this).next('.tglBox').slideToggle(300);
+	});
+});
+</script>
+
+</head>
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+	<div id="main">
+		<p class="mgb5"><b>アコーディオン</b></p>
+		<div class="code-sample">
+<ul class="tglList">
+	<li>
+		<p class="tglBtn">開く開く開く</p>
+		<div class="tglBox">
+			ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
+		</div>
+	</li>
+	<li>
+		<p class="tglBtn">開く開く開く</p>
+		<div class="tglBox">
+			ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト
+		</div>
+	</li>
+</ul>
+		</div>
+
+		<p class="mgt20"><b>css</b></p>
+<pre>.tglBox {
+	display: none;
+}
+.noJS .tglBox {
+	display: block;
+}</pre>
+
+		<p class="mgt20"><b>js</b></p>
+<pre>$('.tglList').find('.tglBtn').css({
+	'cursor': 'pointer'
+}).on('click',function(){
+	$(this).next('.tglBox').slideToggle(300);
+});</pre>
+
+	</div>
+	<div id="sub"></div>
+
+</div>
+<!-- /content -->
+
+</div>
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+<script>
+$(function(){
+	function changecode() {
+		var elm = $('.auto-gen-code-snippet');
+		if (elm.length > 0) {
+			var html = elm.html().replace(/ style="cursor: pointer;"/g,'');
+			elm.html(html);
+		} else {
+			setTimeout(changecode, 500);
+		}
+	}
+	changecode();
+});
+</script>
+</body>
+
+</html>

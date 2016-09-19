@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>Bridge form template｜ページタイトル</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+<style>
+/* flowStyle
+------------------------------- */
+.flow {
+	width: 100%;
+	margin-bottom: 20px;
+	font-weight: 700;
+}
+.flow li {
+	float: left;
+	width: 33%;
+	padding: 0.5em 0;
+	background: #e6e6e6 url(./bg_flow.png) no-repeat right center;
+	text-align: center;
+}
+.flow li.this {
+	background: #FF6060 url(./bg_flow_this.png) no-repeat right center;
+	color: #fff;
+}
+.flow li.prev {
+	background: #e6e6e6 url(./bg_flow_prev.png) no-repeat right center;
+}
+.flow li.comp {
+	width: 34%;
+	background-image: none;
+}
+/* ----------------------------------------
+
+clearfix
+
+---------------------------------------- */
+/* Modern Browsers
+------------------------------- */
+.flow:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+	line-height: 0;
+}
+/* Legacy IE
+------------------------------- */
+.flow {
+	*zoom: 1;
+}
+</style>
+
+</head>
+
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+
+	<!-- main -->
+	<div id="main">
+
+		<div class="section01 mgt20">
+			<h1 class="mgb15"><b>フロー図</b></h1>
+						<!-- flow -->
+			<ol class="flow">
+				<li class="this">入　力</li>
+				<li>確　認</li>
+				<li class="comp">完　了</li>
+			</ol>
+			<ol class="flow">
+				<li class="prev">入　力</li>
+				<li class="this">確　認</li>
+				<li class="comp">完　了</li>
+			</ol>
+			<ol class="flow">
+				<li>入　力</li>
+				<li class="prev">確　認</li>
+				<li class="this comp">完　了</li>
+			</ol>
+			<!-- /flow -->
+
+			<div class="lead"><pre>
+/* flowStyle
+------------------------------- */
+.flow {
+	width: 100%;
+	margin-bottom: 20px;
+	font-weight: 700;
+}
+.flow li {
+	float: left;
+	width: 33%;
+	padding: 0.5em 0;
+	background: #e6e6e6 url(./bg_flow.png) no-repeat right center;
+	text-align: center;
+}
+.flow li.this {
+	background: #FF6060 url(./bg_flow_this.png) no-repeat right center;
+	color: #fff;
+}
+.flow li.prev {
+	background: #e6e6e6 url(./bg_flow_prev.png) no-repeat right center;
+}
+.flow li.comp {
+	width: 34%;
+	background-image: none;
+}
+/* ----------------------------------------
+
+clearfix
+
+---------------------------------------- */
+/* Modern Browsers
+------------------------------- */
+.flow:after {
+	display: block;
+	visibility: hidden;
+	clear: both;
+	height: 0;
+	content: ".";
+	line-height: 0;
+}
+/* Legacy IE
+------------------------------- */
+.flow {
+	*zoom: 1;
+}<br></pre>
+			</div>
+
+
+
+		</div>
+	</div>
+	<!-- /main -->
+	<div id="sub"></div>
+
+</div>
+<!-- /content -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+
+</div>
+
+<!-- /container -->
+
+</body>
+
+</html>

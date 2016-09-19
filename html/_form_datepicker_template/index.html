@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja" class="noJS">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="Description" content="">
+<meta name="Keywords" content=",">
+
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/import.css" media="tv,screen,print">
+<link rel="stylesheet" type="text/css" href="../basic_html/files/css/common/print.css" media="print">
+
+<title>Bridge form template｜ページタイトル</title>
+
+<script type="text/javascript" src="../basic_html/files/js/jquery.js"></script>
+<script type="text/javascript" src="../basic_html/files/js/common.js"></script>
+
+<!-- Dateピッカー使用時に読み込む -->
+<link rel="stylesheet" type="text/css" href="./files/css/jquery-ui-1.9.2.custom.css" media="tv,screen,print">
+<script src="./files/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script>
+$(function(){
+		//datepicker
+		var dataPicker = $('#jquery-ui-datepicker');
+		if(dataPicker.length){
+			$.datepicker.setDefaults($.extend($.datepicker.regional['ja'])); /* 日本語に設定 */
+			dataPicker.datepicker({
+				showOn: "button",
+				buttonImage: "http://alphasis.info/library/images/javascript/jquery/ui/datepicker/jquery-ui-datepicker-buttonimage-24x22.png",
+				buttonImageOnly: true,
+				dateFormat: 'yy/mm/dd',
+				changeMonth: true,
+				changeYear: true,
+				yearRange: '2014:2015',
+				showMonthAfterYear: true
+			});
+		}
+});
+</script>
+
+</head>
+
+
+<body>
+
+<!-- container -->
+<div id="container">
+
+<!-- content -->
+<div id="content">
+
+	<!-- main -->
+	<div id="main">
+
+		<div class="section01 mgt20">
+			<h1 class="mgb15"><b>Dateピッカー機能</b></h1>
+
+			<form action="" method="">
+				<div class="tbl01">
+					<table>
+						<col class="colW25">
+						<col class="colW10">
+						<col>
+						<tr>
+							<th>生年月日</th>
+							<td class="option"><p>任意</p></td>
+							<td><input type="text" name="" class="txt medium01" id="jquery-ui-datepicker"></td>
+						</tr>
+					</table>
+				</div>
+			</form>
+
+			<style>.exp{font-family: "メイリオ";font-size: 14px;color: #555;margin-top: 20px;}</style>
+			<div class="exp">
+				（1）下記を読み込ませる
+				<pre>
+&lt;link rel="stylesheet" type="text/css" href="./files/css/jquery-ui-1.9.2.custom.css" media="tv,screen,print"&gt;
+&lt;script src="./files/js/jquery-ui-1.9.2.custom.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+	//datepicker
+	var dataPicker = $('#jquery-ui-datepicker');
+	if(dataPicker.length){
+		$.datepicker.setDefaults($.extend($.datepicker.regional['ja'])); /* 日本語に設定 */
+		dataPicker.datepicker({
+			showOn: "button",
+			buttonImage: "http://alphasis.info/library/images/javascript/jquery/ui/datepicker/jquery-ui-datepicker-buttonimage-24x22.png",
+			buttonImageOnly: true,
+			dateFormat: 'yy/mm/dd',
+			changeMonth: true,
+			changeYear: true,
+			yearRange: '2014:2015',
+			showMonthAfterYear: true
+		});
+	}
+});
+&lt;/script&gt;</pre>
+		<br>
+		（2）input要素に id="jquery-ui-datepicker"をつける<br>
+		<pre>&lt;input type="text" name="" class="txt medium01" id="jquery-ui-datepicker"&gt;</pre>
+		<br>
+		（3）jquery-ui-1.9.2.custom.css内の画像のパスも適宜変更する。<br>
+		<pre>/files/img/jquery-ui-1.9.2.custom/</pre>
+		<br>
+		（4)カレンダーのテーマを変更する場合<br>
+		下記サイトでダウンロード<br>
+		<a href="http://jqueryui.com/themeroller/">http://jqueryui.com/themeroller/</a><br>
+		<br>
+		jquery-ui-1.9.2.custom.cssは差し替えになるが、328行目の/* add */以降は必要。<br>
+		<pre>
+/* add */
+.ui-datepicker-trigger,.ui-datepicker-next,.ui-datepicker-prev {
+	cursor: pointer;
+}
+.ui-datepicker-trigger {
+	margin: 0 0 2px 5px;
+}
+.ui-datepicker-year {
+	width: auto !important;
+	margin-right: 2px !important;
+}
+.ui-datepicker-month {
+	width: auto !important;
+	margin-left: 5px !important
+}
+		</pre>
+		</div>
+
+
+		</div>
+	</div>
+	<!-- /main -->
+	<div id="sub"></div>
+</div>
+<!-- /content -->
+
+<!-- footer -->
+<div id="footer">
+	<address>COPYRIGHT © BRIDGE CORPORATION INC. ALL RIGHTS RESERVED.</address>
+</div>
+<!-- /footer -->
+
+
+</div>
+
+<!-- /container -->
+<script src="../template.js"></script>
+<link rel="stylesheet" type="text/css" href="../template.css" media="all">
+
+</body>
+
+</html>

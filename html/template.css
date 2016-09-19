@@ -1,0 +1,128 @@
+/* template */
+#content {
+	overflow: hidden;
+	width: 980px;
+	margin: 10px auto 0;
+}
+#main{
+	width: 670px;
+	float: right;
+	margin-bottom: 20px;
+}
+#sub {
+	width: 260px;
+	float: left;
+}
+.sideMenu {
+	border: 1px solid #eee;
+	border-bottom: none;
+	border-radius: 3px;
+}
+.sideMenu li a {
+	display: block;
+	border-bottom: 1px solid #eee;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+.sideMenu li a:hover {
+	text-decoration: underline;
+}
+.sideMenu li.active a {
+	background-color: #efefef;
+}
+.sideMenu li.titLv1 a {
+	display: block;
+	padding: 5px 10px;
+	background: #bbb;
+	font-weight: 700;
+	color: #fff;
+}
+.sideMenu li.titLv2 {
+	padding: 5px 10px;
+	background: #ddd;
+	font-weight: 700;
+}
+
+
+/**
+*
+* Main Stylesheet For Visual Style Guide
+*
+**/
+pre {
+	background: #f3f3f3;
+	padding: 15px;
+	border: 1px solid #ccc;
+	max-width: 980px;
+	max-height: 300px;
+	margin: 15px auto 0;
+	overflow: auto;
+	white-space: -moz-pre-wrap;
+	white-space: pre-wrap;
+}
+.auto-gen-code-snippet {
+	display: none;
+}
+.auto-gen-code-visible {
+	display: block;
+}
+
+/**
+*
+* Button
+*
+**/
+button {
+	-webkit-appearance: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.button {
+	margin-top: 20px;
+	padding: 10px 20px;
+	background: #333;
+	color: #fff;
+}
+.button:hover {
+	background: #666;
+}
+
+/**
+*
+* Styleguide
+*
+**/
+
+.tit_styleguide01Wrap {
+	margin-bottom: 30px;
+	overflow: hidden;
+}
+	.tit_styleguide01Wrap .tit {
+		float: left;
+		padding: 5px 14px;
+		background-color: #333;
+		color: #fff;
+	}
+	.tit_styleguide01Wrap .num {
+		float: left;
+		padding: 5px 14px;
+		background-color: #595959;
+		color: #fff;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
